@@ -1,0 +1,121 @@
+.container{
+	padding:0 6%;
+}
+/* 路径导航 */
+.myBreadcrumb{
+	font-size: 20px;
+	display: flex;
+	margin-bottom: 20px;
+}
+.myBreadcrumb a{
+	font-size: 20px;
+	color: rgba(33,33,33 ,0.5);
+}
+.myBreadcrumb a:hover{
+	font-size: 20px;
+	color: rgba(33,33,33 ,1);
+}
+.myBreadcrumb span{
+	font-size: 20px;
+	padding: 0 4px;
+}
+.oneGoodsData {}
+
+/* 物品图片 */
+.oneGoodsData .goodsImg {
+	width: 100%;
+	height: auto;
+}
+
+/* 物品简要信息 */
+.oneGoodsData .info {
+	padding: 5% 20px;
+}
+
+.oneGoodsData .info .goodsTitle {
+	font-size: 16px;
+	padding: 0 5% 5px 5%;
+	border-bottom: 4px rgba(66, 66, 66, 0.2) solid;
+}
+
+.oneGoodsData .info .time {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	padding-bottom: 5px;
+}
+.oneGoodsData .info .price{
+	padding-top: 5%;
+}
+.oneGoodsData .info .price{
+	font-size: 20px;
+	color:rgba(66, 66, 66, 0.8);
+}
+.oneGoodsData .info .price span{
+	font-size: 40px;
+	color: rgba(183,28,28 ,1);
+}
+.oneGoodsData .info .tradeBtn{
+	position: absolute;
+	bottom: 15%;
+	right: 10px;
+	color: white;
+	background-color: rgba(66, 66, 66, 0.6);
+	border: none;
+}
+.oneGoodsData .info .tradeBtn:hover,
+.oneGoodsData .info .tradeBtn:focus{
+	border: none;
+	background-color: rgba(33,33,33 ,1);
+	box-shadow:3px 3px 5px rgba(66, 66, 66, 0.5) ;
+}
+/* 用户信息 */
+.oneGoodsData .user {
+	width: 50%;
+}
+
+.oneGoodsData .user a img {
+	border-radius: 50%;
+	width: 20%;
+	margin: 0 10px;
+}
+
+
+/* 物品描述 及 物品易物条件*/
+.oneGoodsData .describe{
+	padding-top: 10%;
+}
+.oneGoodsData .barter{
+	padding-top: 1%;
+}
+.oneGoodsData .describe h2,
+.oneGoodsData .barter h2 {
+	padding-bottom: 20px;
+	border-bottom: 2px rgba(66, 66, 66, 0.5) solid;
+}
+.oneGoodsData .describe h2 b,
+.oneGoodsData .barter h2 b{
+	padding-bottom: 16px;
+	border-bottom: 4px rgba(66, 66, 66, 1) solid;
+}
+.oneGoodsData .describe p,
+.oneGoodsData .barter p {
+	font-size: 18px;
+	text-indent:2em;
+	padding: 15px;
+}
+
+/*评论信息*/
+.oneGoodsData .comment textarea{}
+.oneGoodsData .comment textarea:focus{
+	border: 2px rgba(66, 66, 66, 0.5) solid;
+	box-shadow:3px 3px 5px rgba(66, 66, 66, 0.5) ;
+}
+.oneGoodsData .comment button{
+	background-color: rgba(66, 66, 66, 0.6);
+	border-color: rgba(66, 66, 66, 0.6);
+}
+.oneGoodsData .comment button:hover{
+	background-color: rgba(33,33,33 ,1);
+	border-color: rgba(66, 66, 66, 1);
+}

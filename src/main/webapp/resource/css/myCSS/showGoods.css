@@ -1,0 +1,63 @@
+/* 物品列表 */
+.goodsList{}
+.goodsList .goodsData{
+	
+}
+
+.goodsList .title{
+	width: 30%;
+	letter-spacing: 5px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	padding-left: 5%;
+	border-bottom: 4px rgba(66,66,66 ,0.8) solid;
+	transition: 1s;
+}
+.goodsList .title:hover{
+	width: 100%;
+}
+
+/* 分页按钮组 */
+.myPagination {
+	margin-top: 20px;
+	padding-right: 10px;
+	float: right;
+}
+
+.myPagination>ul {
+	float: right;
+	border-radius: 45px;
+}
+
+.myPagination>ul>li>a{
+	border-radius: 45px;
+	margin: 0px 3px;
+	color: rgba(33, 33, 33, 1);
+	padding: 9px 16px;
+	border: 1px  rgba(33, 33, 33, 0.8) solid;
+	font-size: 15px;
+}
+.myPagination>ul>li>a:hover{
+	background-color:rgba(224,224,224 ,1);
+}
+/* 上一页按钮 */
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+	border-radius: 4px 45px 45px 45px;
+}
+
+/* 下一页按钮 */
+.pagination>li:last-child>a {
+	border-radius: 45px 45px 4px 45px;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover{
+	background-color:rgba(33, 33, 33, 0.8);
+	color: rgba(255, 255,255, 1);
+	border: 1px  rgba(33, 33, 33, 0.8) solid;
+}

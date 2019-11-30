@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JianxiLin.ssm.dao.GLabelsDao">
+    <!--根据物品id查询物品标签信息-->
+    <select id="selGLabelsByGoodsId" resultType="com.JianxiLin.ssm.entity.GoodsLabels">
+        select * from g_labels where goods_id = #{goodsId}
+    </select>
+
+    <!--查询所有物品的标签信息-->
+    <select id="selAllGLabels" resultType="com.JianxiLin.ssm.entity.GoodsLabels">
+        select  * from g_labels;
+    </select>
+
+    <!--查询所有热门物品的id-->
+    <select id="selHotLabelsGoodsId" resultType="integer">
+        select  goods_id from g_labels where is_hot = '1';
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JianxiLin.ssm.dao.UserDao">
+	<!--插入用户信息-->
+	<select id="insUser" >
+		insert into user
+		(id,name,account_id,token,avater_url,gmt_create,gmt_update,city,province,sex,country)
+		values
+		(default,#{user.name},#{user.accountId},#{user.token},#{user.avaterUrl},#{user.gmtCreate},#{user.gmtUpdate},#{user.city},#{user.province},#{user.sex},#{user.country})
+	</select>
+
+	<!--更新用户信息-->
+	<update id="updateUser">
+		UPDATE user
+		SET
+		name = #{user.name},token = #{user.token},avater_url = #{user.avaterUrl},gmt_create = #{user.gmtCreate},
+		gmt_update = #{user.gmtUpdate},city = #{user.city},province = #{user.province},sex = #{user.sex},country = #{user.country}
+		where
+		account_id = #{user.accountId}
+	</update>
+	<!--根据用户accountId查询用户信息-->
+	<select id="selUserByAccountId" resultType="com.JianxiLin.ssm.entity.User">
+		select * from user
+		where account_id = #{accountId}
+	</select>
+	<!--根据用户Token查询用户信息-->
+	<select id="selUserByToken" resultType="com.JianxiLin.ssm.entity.User">
+		select * from user
+		where token = #{token}
+	</select>
+
+	<insert id="insTest">
+		insert into test
+		(id,name,col)
+		values
+		(default,
+		<if test="name =='test01'">
+			'test-01',
+		</if>
+		<if test='name.matches("test02")'>
+			'test-02',
+		</if>
+		<if test='name.indexOf("test02") eq 0'>
+			'test-02_0',
+		</if>
+		<choose>
+			<when test="col > 5">
+				'大于5'
+			</when>
+			<when test="col lt 5">
+				'小于5'
+			</when>
+			<otherwise>
+				'未知'
+			</otherwise>
+		</choose>
+		)
+	</insert>
+</mapper>

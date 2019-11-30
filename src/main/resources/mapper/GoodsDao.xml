@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JianxiLin.ssm.dao.GoodsDao">
+    <!--查询物品信息-->
+    <select id="selGoodsById" resultType="com.JianxiLin.ssm.entity.Goods">
+        select  * from goods g
+        inner join g_type gt
+        on g.type = gt.id
+        where g.id = #{id}
+    </select>
+
+    <!--查询所有物品信息-->
+    <select id="selAllGoods" resultType="com.JianxiLin.ssm.entity.Goods">
+        select  * from goods g
+        inner join g_type gt
+        on g.type = gt.id;
+    </select>
+    <!--查询所有物品信息-->
+    <select id="selGoodsByType" resultType="com.JianxiLin.ssm.entity.Goods"  parameterType="map">
+        select  * from goods g
+        inner join g_type gt
+        on g.type = gt.id
+        where gt.id = #{typeId}
+        limit #{start},#{number}
+    </select>
+    <!--获取某类型物品的总数-->
+    <select id="selGoodsNumByType" resultType="Integer"  parameterType="Integer">
+        select  count(1) from goods g
+        inner join g_type gt
+        on g.type = gt.id
+        where gt.id = #{typeId}
+    </select>
+    <!--插入用户信息-->
+    <insert id="insGoods">
+        insert into goods
+         (id,name,describe,price,trans_conditions,gmt_update,gmt_create,
+         goods_picture,goods_video,trading_status,type,userId)
+         values
+         (default,#{goods.name},#{goods.describe},#{goods.price},#{goods.transConditions},
+         #{goods.gmtUpdate},#{goods.gmtCreate},#{goods.goodsPicture},#{goods.goodsVideo},
+         #{goods.tradingStatus},#{goods.type},#{goods.userId})
+    </insert>
+</mapper>
