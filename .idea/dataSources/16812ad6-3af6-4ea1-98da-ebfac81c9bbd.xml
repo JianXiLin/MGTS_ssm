@@ -22,7 +22,7 @@
     <schema id="6" parent="1" name="mgts">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>utf8_general_ci</Collation>
+      <Collation>utf8mb4_general_ci</Collation>
     </schema>
     <schema id="7" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
@@ -944,19 +944,31 @@
     </collation>
     <table id="239" parent="6" name="chat_history">
       <Comment>????</Comment>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="240" parent="6" name="collection_history">
       <Comment>????</Comment>
+      <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="241" parent="6" name="g_labels"/>
-    <table id="242" parent="6" name="g_type"/>
-    <table id="243" parent="6" name="goods"/>
-    <table id="244" parent="6" name="test"/>
+    <table id="241" parent="6" name="g_labels">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="242" parent="6" name="g_type">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="243" parent="6" name="goods">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <table id="244" parent="6" name="test">
+      <Collation>utf8_general_ci</Collation>
+    </table>
     <table id="245" parent="6" name="transaction_history">
       <Comment>???????????</Comment>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="246" parent="6" name="user">
       <Comment>???</Comment>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <column id="247" parent="239" name="id">
       <Position>1</Position>
@@ -1094,12 +1106,12 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="243" name="name">
+    <column id="271" parent="243" name="goods_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="243" name="describe">
+    <column id="272" parent="243" name="goods_describe">
       <Position>3</Position>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>

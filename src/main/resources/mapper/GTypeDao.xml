@@ -6,5 +6,9 @@
         select type_name from g_type where id = #{id}
     </select>
 
+    <!--根据类型名称查找类型id-->
+    <select id="selTypeIdByName" resultType="Integer" parameterType="String">
+        select id from g_type where type_name = #{typeName}
+    </select>
 
 </mapper>

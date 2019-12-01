@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="dateValue" class="java.util.Date"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +13,7 @@
 </head>
 
 <body>
+
     <%@include file="common/header.jsp"%>
 
     <!-- ##### 导航图片  Start ##### -->
@@ -100,17 +103,22 @@
                             </div>
 
                             <div class="row">
-                                <c:forEach items="${hotGoods}" var="hotGoods">
+                                <c:forEach items="${hotGoodsWithUser}" var="hotGoodsWithUser">
                                     <div class="col-lg-4 col-md-6 mb-4">
                                         <div class="card h-100">
-                                            <a href="/goods/${hotGoods.id}"><img class="card-img-top"
-                                                                        src="<c:url value="${hotGoods.goodsPicture}"/>"
+                                            <a href="/goods/${hotGoodsWithUser.goods.id}"><img class="card-img-top"
+                                                                        src="<c:url value="${hotGoodsWithUser.goods.goodsPicture}"/>"
                                                                         alt=""></a>
                                             <div class="card-body">
                                                 <h4 class="card-title">
-                                                    <a href="onePages.jsp"><c:out value="${hotGoods.name}"/></a>
+                                                    <a href="/goods/${hotGoodsWithUser.goods.id}"><c:out value="${hotGoodsWithUser.goods.goodsName}"/></a>
                                                 </h4>
-                                                <h5>$<c:out value="${hotGoods.price}"/></h5>
+                                                <h5>$<c:out value="${hotGoodsWithUser.goods.price}"/></h5>
+                                                <span style="padding-top:20px;">
+                                                    <img src="${hotGoodsWithUser.user.avaterUrl}" style="margin-right:10px;width: 10%;border-radius: 50%;"/>${hotGoodsWithUser.user.name}
+                                                </span>
+                                                <jsp:setProperty name="dateValue" property="time" value="${hotGoodsWithUser.goods.gmtUpdate}"/>
+                                                <p style="margin:0 0 0 30%;"> <fmt:formatDate value="${dateValue}" pattern="yyyy.MM.dd HH:mm:ss"/></p>
                                             </div>
 
                                         </div>

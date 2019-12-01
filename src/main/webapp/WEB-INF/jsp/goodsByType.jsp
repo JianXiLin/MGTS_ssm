@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="dateValue" class="java.util.Date"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +14,8 @@
 </head>
 
 <body>
+
+
 <!-- ##### Header Area Start ######## -->
 <%@include file="common/header.jsp" %>
 <!-- ##### Header Area End ######## -->
@@ -52,9 +56,15 @@
                                                                     alt=""></a>
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="onePages.jsp"><c:out value="${goodsWithUserDTO.goods.name}"/></a>
+                                                <a href="/goods/${goodsWithUserDTO.goods.id}"><c:out value="${goodsWithUserDTO.goods.goodsName}"/></a>
                                             </h4>
                                             <h5>$<c:out value="${goodsWithUserDTO.goods.price}"/></h5>
+                                            <span style="padding-top:20px;">
+                                                    <img src="${goodsWithUserDTO.user.avaterUrl}" style="margin-right:10px;width: 10%;border-radius: 50%;"/>${goodsWithUserDTO.user.name}
+                                                </span>
+                                            <jsp:setProperty name="dateValue" property="time" value="${goodsWithUserDTO.goods.gmtUpdate}"/>
+                                            <p style="margin:0 0 0 30%;"> <fmt:formatDate value="${dateValue}" pattern="yyyy.MM.dd HH:mm:ss"/></p>
+
                                         </div>
 
                                     </div>

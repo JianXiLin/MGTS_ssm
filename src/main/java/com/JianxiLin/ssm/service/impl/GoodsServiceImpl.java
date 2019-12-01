@@ -6,6 +6,7 @@ import com.JianxiLin.ssm.dao.GoodsDao;
 import com.JianxiLin.ssm.dao.UserDao;
 import com.JianxiLin.ssm.dto.GoodsPageDTO;
 import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
+import com.JianxiLin.ssm.dto.PendingGoodsDTO;
 import com.JianxiLin.ssm.entity.Goods;
 import com.JianxiLin.ssm.entity.User;
 import com.JianxiLin.ssm.service.GoodsService;
@@ -65,13 +66,14 @@ public class GoodsServiceImpl implements GoodsService {
      * @return
      */
     @Override
-    public List<Goods> getHotGoods() {
+    public List<GoodsWithUserDTO> getHotGoods() {
         List<Integer> hotGoodsIds = gLabelsDao.selHotLabelsGoodsId();
         List<Goods> hotGoods = new ArrayList<>();
         for (Integer hotGoodsId : hotGoodsIds) {
             hotGoods.add(goodsDao.selGoodsById(hotGoodsId));
         }
-        return hotGoods;
+        List<GoodsWithUserDTO> goodsWithUserDTOList = toGoodsListWithUser(hotGoods);
+        return goodsWithUserDTOList;
     }
 
     /**
@@ -108,6 +110,68 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsPageDTO;
     }
 
+    /**
+     * 用户挂起物品或者修改物品
+     * @param pendingGoodsDTO
+     * @return 返回物品类型id
+     */
+    @Override
+    public Integer pendingOrUpdGoods(PendingGoodsDTO pendingGoodsDTO){
+        Goods insGoods = toGoods(pendingGoodsDTO);
+
+        Goods DBGoods = goodsDao.selGoodsById(insGoods.getId());
+        if(DBGoods != null){
+            insGoods.setTradingStatus(DBGoods.getTradingStatus());
+        }else{
+            insGoods.setTradingStatus("0");
+        }
+
+        insOrUpdateGoods(insGoods);
+        return insGoods.getType();
+    }
+
+
+    private void insOrUpdateGoods(Goods goods) {
+        Goods DBGoods = goodsDao.selGoodsById(goods.getId());
+        if(DBGoods != null && goods.getId()!= 0){
+            //更新物品信息
+            Goods updGoods = goods;
+
+            updGoods.setGmtCreate(DBGoods.getGmtCreate());
+            updGoods.setGmtUpdate(System.currentTimeMillis());
+
+            goodsDao.updateGoods(updGoods);
+        }else {
+            //添加物品信息
+            Goods insGodds = goods;
+            insGodds.setGmtCreate(System.currentTimeMillis());
+            insGodds.setGmtUpdate(System.currentTimeMillis());
+
+            goodsDao.insGoods(insGodds);
+
+        }
+    }
+
+    /**
+     * 将PendingGoodsDTO 中的对象提取到 Goods对象中
+     * @param pendingGoodsDTO
+     * @return
+     */
+    private Goods toGoods(PendingGoodsDTO pendingGoodsDTO){
+        Goods goods = new Goods();
+        goods.setId(pendingGoodsDTO.getGoodsId());
+        goods.setType(gTypeDao.selTypeIdByName(pendingGoodsDTO.getGoodsTypeName()));
+        goods.setTypeName(pendingGoodsDTO.getGoodsTypeName());
+        goods.setGoodsName(pendingGoodsDTO.getGoodsName());
+        goods.setGoodsDescribe(pendingGoodsDTO.getGoodsDescribe());
+        goods.setGoodsPicture(pendingGoodsDTO.getGoodsPicture());
+        goods.setPrice(pendingGoodsDTO.getPrice());
+        goods.setTransConditions(pendingGoodsDTO.getTransConditions());
+        goods.setUserId(pendingGoodsDTO.getUserAccountId());
+        goods.setGoodsVideo(null);
+
+        return goods;
+    }
 
     /**
      * 为物品容器中每个物品信息添加其用户信息(拥有者信息)

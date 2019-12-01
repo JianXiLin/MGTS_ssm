@@ -21,6 +21,7 @@
         inner join g_type gt
         on g.type = gt.id
         where gt.id = #{typeId}
+        order by g.gmt_update desc
         limit #{start},#{number}
     </select>
     <!--获取某类型物品的总数-->
@@ -31,13 +32,26 @@
         where gt.id = #{typeId}
     </select>
     <!--插入用户信息-->
-    <insert id="insGoods">
+    <insert id="insGoods" parameterType="com.JianxiLin.ssm.entity.Goods">
         insert into goods
-         (id,name,describe,price,trans_conditions,gmt_update,gmt_create,
+         (id,goods_name,goods_describe,price,trans_conditions,gmt_update,gmt_create,
          goods_picture,goods_video,trading_status,type,userId)
          values
-         (default,#{goods.name},#{goods.describe},#{goods.price},#{goods.transConditions},
+         (default,#{goods.goodsName},#{goods.goodsDescribe},#{goods.price},#{goods.transConditions},
          #{goods.gmtUpdate},#{goods.gmtCreate},#{goods.goodsPicture},#{goods.goodsVideo},
          #{goods.tradingStatus},#{goods.type},#{goods.userId})
     </insert>
+
+    <!--修改物品信息-->
+    <update id="updateGoods">
+        update goods
+        set
+        goods_name = #{goods.goodsName},goods_describe= #{goods.goodsDescribe},price= #{goods.price},
+        trans_conditions= #{goods.transConditions},gmt_update = #{goods.gmtUpdate}, gmt_create=#{goods.gmtCreate}
+        ,goods_picture = #{goods.goodsPicture},goods_video = #{goods.goodsVideo},trading_status = #{goods.tradingStatus},
+        type = #{goods.type}, userId = #{goods.userId}
+        where
+        id = #{goods.id}
+    </update>
+
 </mapper>

@@ -1,6 +1,6 @@
 package com.JianxiLin.ssm.web;
 
-import com.JianxiLin.ssm.entity.Goods;
+import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.service.impl.GoodsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +19,8 @@ public class IndexController {
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(Model model) {
         //初始显示热门物品
-        List<Goods> hotGoods = goodsService.getHotGoods();
-        model.addAttribute("hotGoods",hotGoods);
+        List<GoodsWithUserDTO> hotGoods = goodsService.getHotGoods();
+        model.addAttribute("hotGoodsWithUser",hotGoods);
         return "index";
     }
 

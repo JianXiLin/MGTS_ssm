@@ -7,7 +7,7 @@
 
 <head>
     <!-- Title  -->
-    <title>${goodsWithUser.goods.name}</title>
+    <title>${goodsWithUser.goods.goodsName}</title>
 
     <%@include file="common/head_css.jsp" %>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resource/css/myCSS/detailGoods.css"/>
@@ -15,9 +15,8 @@
 
 <body>
 
-<jsp:setProperty name="dateValue" property="time" value="${goodsWithUser.goods.gmtCreate}"/>
+<jsp:setProperty name="dateValue" property="time" value="${goodsWithUser.goods.gmtUpdate}"/>
 <!-- 使用jsp:setProperty标签将时间戳设置到Date的time属性中 -->
-<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd HH:mm:ss"/> <!-- 转换格式 -->
 
 <!-- ##### Header Area Start ######## -->
 <%@include file="common/header.jsp" %>
@@ -43,9 +42,10 @@
 <section class="shop_grid_area section-padding-80">
     <div class="container">
         <ol class="myBreadcrumb">
-            <li><a href="#">Home <span>></span></a></li>
-            <li><a href="#">Library <span>></span></a></li>
-            <li class="active">Data</li>
+            <li><a href="/">Home <span>></span></a></li>
+            <li><a href="/goods/page/${goodsWithUser.goods.type}">${goodsWithUser.goods.typeName} <span>></span></a>
+            </li>
+            <li class="active">${goodsWithUser.goods.goodsName}</li>
         </ol>
         <!-- ##### 页面主内容 Start #### -->
         <div class="row oneGoodsData">
@@ -54,12 +54,12 @@
             <div class="col-lg-12 row">
                 <!-- 物品图片-->
                 <div class="col-lg-6">
-                    <img class="goodsImg" src="<c:url value="${goodsWithUser.goods.goodsPicture}"/>"> alt="">
+                    <img class="goodsImg" src="<c:url value="${goodsWithUser.goods.goodsPicture}"/>" alt="">
                 </div>
                 <!-- 物品简要信息 start-->
                 <div class="col-lg-6 info">
                     <!-- Title -->
-                    <h1 class="goodsTitle">${goodsWithUser.goods.name}</h1>
+                    <h1 class="goodsTitle">${goodsWithUser.goods.goodsName}</h1>
                     <!-- Author -->
                     <p class="user">
                         by
@@ -72,8 +72,18 @@
                         价格 : <span>￥ ${goodsWithUser.goods.price}</span>
                     </div>
                     <!-- Date/Time -->
-                    <p class="time">Released on ${dateValue}</p>
-                    <button type="button" class="btn tradeBtn">Submit</button>
+                    <p class="time">Released on <fmt:formatDate value="${dateValue}"
+                                                                pattern="yyyy年 MM月 dd日  HH:mm:ss"/></p>
+                    <c:if test="${goodsWithUser.user.accountId == sessionScope.user.accountId}">
+                        <a href="/goods/update/${goodsWithUser.goods.id}">
+                            <button type="button" class="btn tradeBtn" href="">修改</button>
+                        </a>
+                    </c:if>
+                    <c:if test="${goodsWithUser.user.accountId != sessionScope.user.accountId}">
+                        <a href="/">
+                            <button type="button" class="btn tradeBtn">交易</button>
+                        </a>
+                    </c:if>
                 </div>
                 <!-- 物品简要信息 end-->
             </div>
@@ -83,7 +93,7 @@
             <!-- 物品描述信息 start-->
             <div class="col-lg-12 describe">
                 <h2><b>物品描述</b></h2>
-                <p>${goodsWithUser.goods.describe}</p>
+                <p>${goodsWithUser.goods.goodsDescribe}</p>
             </div>
             <!-- 物品描述信息 end-->
             <!-- 物品交易条件 start-->

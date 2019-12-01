@@ -39,7 +39,10 @@
                                 <li><a href="/goods/page/8">其它物品</a></li>
                             </ul>
                         </li>
-                        <li><a href="pendingItem.html">挂起物品</a></li>
+                        <c:if test="${sessionScope.user != null}">
+                            <li><a href="/goods/pending">挂起物品</a></li>
+                        </c:if>
+
                         <li><a href="/user/person/1">个人页面（用于测试）</a></li>
                         <li><a href="transactionPage.html">交易页面（用于测试）</a></li>
                     </ul>

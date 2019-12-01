@@ -38,4 +38,10 @@ public interface GoodsDao {
      */
     void insGoods(@Param("goods")Goods goods);
 
+    /***
+     * 更新物品信息
+     * @param goods
+     */
+    void updateGoods(@Param("goods") Goods goods);
+
 }

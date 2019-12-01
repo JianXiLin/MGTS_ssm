@@ -2,7 +2,7 @@ package com.JianxiLin.ssm.service;
 
 import com.JianxiLin.ssm.dto.GoodsPageDTO;
 import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
-import com.JianxiLin.ssm.entity.Goods;
+import com.JianxiLin.ssm.dto.PendingGoodsDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public interface GoodsService {
      *
      * @return
      */
-    List<Goods> getHotGoods();
+    List<GoodsWithUserDTO> getHotGoods();
 
     /**
      * 获取某类型物品(书、生活用品......) --分页
@@ -41,6 +41,10 @@ public interface GoodsService {
      */
     GoodsPageDTO getGoodsByType(Integer typeId, Integer page, Integer size);
 
-
-
+    /***
+     *  用户挂起/修改物品信息
+     * @param pendingGoodsDTO
+     * @return
+     */
+    Integer pendingOrUpdGoods(PendingGoodsDTO pendingGoodsDTO);
 }
