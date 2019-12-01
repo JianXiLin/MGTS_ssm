@@ -6,6 +6,7 @@ import com.JianxiLin.ssm.util.SpringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 @Component
@@ -32,23 +33,23 @@ public class UserFilter implements Filter {
         UserDao userDao = (UserDao) SpringUtils.getBean("userDao");
 
         //测试账号
-        User user = userDao.selUserByToken("a");
-        if(user!=null){
-            request.getSession().setAttribute("user",user);
-        }
+//        User user = userDao.selUserByToken("a");
+//        if(user!=null){
+//            request.getSession().setAttribute("user",user);
+//        }
 
-//        Cookie[] cookies = request.getCookies();
-//        if(null != cookies)
-//            for(Cookie cookie:cookies){
-//                if(cookie.getName().equals("token")){
-//                    String token = cookie.getValue();
-//                    User user = userDao.selUserByToken(token);
-//                    if(user!=null){
-//                        request.getSession().setAttribute("user",user);
-//                    }
-//                    break;
-//                }
-//            }
+        Cookie[] cookies = request.getCookies();
+        if(null != cookies)
+            for(Cookie cookie:cookies){
+                if(cookie.getName().equals("token")){
+                    String token = cookie.getValue();
+                    User user = userDao.selUserByToken(token);
+                    if(user!=null){
+                        request.getSession().setAttribute("user",user);
+                    }
+                    break;
+                }
+            }
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
