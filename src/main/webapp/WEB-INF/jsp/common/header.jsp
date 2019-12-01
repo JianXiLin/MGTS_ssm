@@ -13,7 +13,8 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="/"><img src="<%=request.getContextPath()%>/resource/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="/"><img src="<%=request.getContextPath()%>/resource/img/core-img/logo.png"
+                                               alt=""></a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -39,12 +40,10 @@
                                 <li><a href="/goods/page/8">其它物品</a></li>
                             </ul>
                         </li>
-                        <c:if test="${sessionScope.user != null}">
-                            <li><a href="/goods/pending">挂起物品</a></li>
-                        </c:if>
 
-                        <li><a href="/user/person/1">个人页面（用于测试）</a></li>
-                        <li><a href="transactionPage.html">交易页面（用于测试）</a></li>
+
+                        <%--<li><a href="/user/person/1">个人页面（用于测试）</a></li>--%>
+                        <%--<li><a href="transactionPage.html">交易页面（用于测试）</a></li>--%>
                     </ul>
                 </div>
                 <!-- Nav End -->
@@ -60,6 +59,11 @@
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
+            <c:if test="${sessionScope.user != null}">
+                <div class="favourite-area">
+                    <a href="/goods/pending">挂起物品</a>
+                </div>
+            </c:if>
             <!-- User Login Info -->
             <div id="user_info" class="user-login-info" style="margin-right:10px;">
                 <c:if test="${user == null}">
@@ -67,17 +71,22 @@
                 </c:if>
 
                 <c:if test="${user!=null}">
-                    <a  href="#" style="width: 100%;margin-right: 10px"><img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">${user.name}</a>
+                    <a href="#" class="dropdown-toggle nav-link userNav"
+                       id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">${user.name}&nbsp;</a>
+                    <div class="dropdown-menu userNavHidden" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/user/logout">退出登录</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                    </div>
                 </c:if>
 
             </div>
-
         </div>
 
     </div>
 </header>
 <!-- ##### Header Area End ##### -->
-
 
 
 <!-- 登录页面 -->
@@ -110,9 +119,12 @@
                         <div class="error"></div>
                         <div class="form loginBox">
                             <form method="" action="" accept-charset="UTF-8">
-                                <input id="account" class="form-control" type="text" placeholder="Account" name="account">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                <input id="account" class="form-control" type="text" placeholder="Account"
+                                       name="account">
+                                <input id="password" class="form-control" type="password" placeholder="Password"
+                                       name="password">
+                                <input class="btn btn-default btn-login" type="button" value="Login"
+                                       onclick="loginAjax()">
                             </form>
                         </div>
                     </div>
@@ -120,11 +132,16 @@
                 <div class="box">
                     <div class="content registerBox" style="display:none;">
                         <div class="form">
-                            <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
-                                <input id="account_r" class="form-control" type="text" placeholder="Account" name="account">
-                                <input id="password_r" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" onclick="alert('此功能未实现')">
+                            <form method="" html="{:multipart=>true}" data-remote="true" action=""
+                                  accept-charset="UTF-8">
+                                <input id="account_r" class="form-control" type="text" placeholder="Account"
+                                       name="account">
+                                <input id="password_r" class="form-control" type="password" placeholder="Password"
+                                       name="password">
+                                <input id="password_confirmation" class="form-control" type="password"
+                                       placeholder="Repeat Password" name="password_confirmation">
+                                <input class="btn btn-default btn-register" type="button" value="Create account"
+                                       name="commit" onclick="alert('此功能未实现')">
                             </form>
                         </div>
                     </div>

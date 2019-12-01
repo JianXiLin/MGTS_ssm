@@ -1,0 +1,11 @@
+/*用户导航栏*/
+.userNav{
+	padding: 0px 0px 0px 10px;
+	width: auto !important;
+}
+.userNavHidden a{
+	line-height: 30px !important;
+	width: 100% !important;
+	text-align: left !important;
+
+}

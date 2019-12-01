@@ -70,6 +70,12 @@ public class GoodsController {
         return "pendingGoods";
     }
 
+    /***
+     *  处理挂起物品的表单post请求
+     * @param pendingGoodsDTO 从前端jsp中获取的物品信息。
+     *                        表单的name值与PandingGoodsDTO属性名相对应
+     * @return
+     */
     @RequestMapping(value = "/pending",method = RequestMethod.POST)
     public String pendingGoods(PendingGoodsDTO pendingGoodsDTO){
         System.out.println(pendingGoodsDTO.toString());
@@ -81,6 +87,13 @@ public class GoodsController {
         return "redirect:page/"+goodsTypeId;
     }
 
+    /***
+     *  更新物品信息-- 向请求添加将修改物品的信息，跳转到挂起物品页面，
+     *  在挂起页面实现修改物品信息
+     * @param goodsId 物品id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/update/{goodsId}",method = RequestMethod.GET)
     public String updateGoods( @PathVariable Integer goodsId,
                                Model model){
@@ -89,4 +102,6 @@ public class GoodsController {
         model.addAttribute("goods",goodsWithUserById.getGoods());
         return "pendingGoods";
     }
+
+
 }

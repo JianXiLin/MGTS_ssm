@@ -28,7 +28,6 @@ $(function () {
 
 
 
-
     //ajax轮询: 询问微信是否确认登录
     //点击登录、显示二维码后，js轮询ajax内容
     function queryWeixinisAuth() {
@@ -58,7 +57,7 @@ $(function () {
                         //     res.wechatUserDTO.nickname
                         // )
 
-                        $.cookie('token', res.token);
+                        // $.cookie('token', res.token);
                         console.log(res.token)
                         window.location.reload()
                     } else if (res.auth == false) {

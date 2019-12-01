@@ -18,3 +18,5 @@
 <link rel="stylesheet" href="<%= request.getContextPath()%>/resource/css/core-style.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/resource/css/login-register.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/resource/css/myCSS/style.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/resource/css/myCSS/header.css">
+

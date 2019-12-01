@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @Component
 public class UserFilter implements Filter {
@@ -28,6 +29,7 @@ public class UserFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         //获取cookie内容判断登录
         //获取bean
         UserDao userDao = (UserDao) SpringUtils.getBean("userDao");
@@ -51,6 +53,11 @@ public class UserFilter implements Filter {
                 }
             }
         filterChain.doFilter(servletRequest,servletResponse);
+            request.getSession().removeAttribute("user");
+        Cookie cookie = new Cookie("token", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
     }
 
     @Override
