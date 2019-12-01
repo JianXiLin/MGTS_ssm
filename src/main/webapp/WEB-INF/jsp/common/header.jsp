@@ -61,19 +61,13 @@
                 </form>
             </div>
             <!-- User Login Info -->
-            <div id="user_info" class="user-login-info" style="margin-right: 10px">
+            <div id="user_info" class="user-login-info" style="margin-right:10px;">
                 <c:if test="${user == null}">
-                    <a id="" href="#" onclick="openLoginModal();">
-                        <img src="" alt="">
-                        登录
-                    </a>
+                    <a id="" href="#" onclick="openLoginModal();"><img src="" alt="">登录</a>
                 </c:if>
 
                 <c:if test="${user!=null}">
-                    <a  href="#" >
-                        <img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">
-                            ${user.name}
-                    </a>
+                    <a  href="#" style="width: 100%;margin-right: 10px"><img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">${user.name}</a>
                 </c:if>
 
             </div>

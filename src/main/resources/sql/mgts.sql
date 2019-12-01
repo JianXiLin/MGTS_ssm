@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50727
 File Encoding         : 65001
 
-Date: 2019-11-30 12:36:59
+Date: 2019-12-01 15:20:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,8 +57,8 @@ CREATE TABLE `collection_history` (
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `describe` varchar(500) DEFAULT NULL,
+  `goods_name` varchar(50) DEFAULT NULL,
+  `goods_describe` varchar(500) DEFAULT NULL,
   `price` varchar(100) DEFAULT NULL,
   `trans_conditions` varchar(500) DEFAULT NULL,
   `gmt_create` mediumtext,
@@ -71,7 +71,7 @@ CREATE TABLE `goods` (
   PRIMARY KEY (`id`),
   KEY `goods_g_type_id_fk` (`type`),
   CONSTRAINT `goods_g_type_id_fk` FOREIGN KEY (`type`) REFERENCES `g_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goods
@@ -189,6 +189,22 @@ INSERT INTO `goods` VALUES ('110', '小风扇', '粉色小风扇', '8', '无', '
 INSERT INTO `goods` VALUES ('111', '小风扇', '粉色小风扇', '8', '无', '1573916238678', '1573916238678', 'https://i.loli.net/2019/11/29/dS9IaQfpDW5Zo4j.png', '0', '0', '6', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
 INSERT INTO `goods` VALUES ('112', '小米笔记本', '去年年底京东购买的笔记本，未过保，无损坏。', '3000', '无', '1573916238678', '1573916238678', 'https://i.loli.net/2019/11/29/Ln79cERkaFTmeil.png', '0', '0', '7', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
 INSERT INTO `goods` VALUES ('113', '笔记册', '全新，未使用', '5', '无', '1573916238678', '1573916238678', 'https://i.loli.net/2019/11/29/oSfsF2twWY18MD6.png', '0', '0', '8', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('118', 'a', '描述', '15', '条件', '1575118108258', '1575118108258', 'https://i.loli.net/2019/11/30/xocZBvRQrPtzCje.jpg', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('119', 'test', '', '15', '', '1575120816349', '1575120816349', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('120', 'a', 'test', '15', '', '1575129208818', '1575129208818', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '3', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('121', '忑', 'https://i.loli.net/2019/11/30/xE4D3yzUuSeZoWb.png', '15', '无', '1575129364199', '1575129364199', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('122', 'test01', 'https://i.loli.net/2019/11/30/xE4D3yzUuSeZoWb.png', '15', '', '1575129447532', '1575129447532', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('123', '2', '9', '8', '', '1575129524719', '1575129524719', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('124', 'test02', 'wu ', '10000', '866', '1575132776988', '1575132776988', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '7', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('125', 'test03', 'wu ', '155', '莫得', '1575132986064', '1575132986064', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '3', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('126', 'test02', 'w', '155', 'w', '1575133907475', '1575133907475', 'https://i.loli.net/2019/12/01/ceqX8UaxnidDurT.png', null, '0', '1', 'onYXl1eV5atvcTGk-Mj660Q3QsKA');
+INSERT INTO `goods` VALUES ('127', '测试物品01', '测--------------------------------', '1555', '易', '1575168528223', '1575178493717', 'https://i.loli.net/2019/12/01/PLmDCAqTWQR67Ie.jpg', null, '0', '4', 'a');
+INSERT INTO `goods` VALUES ('128', '测试物品01', '                                测--------------------------------\r\n                            ', '1555', '                                易\r\n                            ', '1575171303629', '1575171303629', 'https://i.loli.net/2019/12/01/JH1lmTMbX4OaKIe.jpg', null, '0', '1', 'a');
+INSERT INTO `goods` VALUES ('129', '测试物品01', '测--------------------------------\r\n                            ', '1555', '易\r\n                            ', '1575171992712', '1575171992712', 'https://i.loli.net/2019/12/01/jDVA4Z3YlMdXtOq.png', null, '0', '1', 'a');
+INSERT INTO `goods` VALUES ('130', '测试物品01', '测--------------------------------\r\n                            ', '1555', '易\r\n                            ', '1575172206956', '1575172206956', 'https://i.loli.net/2019/12/01/JH1lmTMbX4OaKIe.jpg', null, '0', '4', 'a');
+INSERT INTO `goods` VALUES ('131', '测试物品01', '修改测试\r\n                            ', '1555', '易\r\n                            ', '1575172619936', '1575172619936', 'https://i.loli.net/2019/12/01/jDVA4Z3YlMdXtOq.png', null, '0', '4', 'a');
+INSERT INTO `goods` VALUES ('132', '修改信息', '测--------再次修改\r\n                            ', '155599', '易修改\r\n                            ', '1575172714713', '1575178453548', 'https://i.loli.net/2019/12/01/PLmDCAqTWQR67Ie.jpg', null, '0', '2', 'a');
+INSERT INTO `goods` VALUES ('133', '测试物品01', '测------------------修改\r\n                            \r\n                            ', '1555', '易\r\n                            \r\n                            ', '1575172945092', '1575172945092', 'https://i.loli.net/2019/12/01/jDVA4Z3YlMdXtOq.png', null, '0', '4', 'a');
 
 -- ----------------------------
 -- Table structure for g_labels
@@ -296,9 +312,10 @@ CREATE TABLE `user` (
   `sex` int(11) DEFAULT NULL,
   `country` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='???';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='???';
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '。x', 'onYXl1eV5atvcTGk-Mj660Q3QsKA', 'aecf0ae4-f2fc-40a3-9f42-b37144fe4c96', 'http://thirdwx.qlogo.cn/mmopen/vi_32/ygUe1BziaHLxHrUCuWdOFuTVUUo9WBgnLBNicTlueMWNygtXhtosWKMKl9FLe3zurA2GMK4zzTCIoZytS0vibTuKA/132', '1571497558148', '1574947269833', '广州', '广东', '1', '中国');
+INSERT INTO `user` VALUES ('1', '。x', 'onYXl1eV5atvcTGk-Mj660Q3QsKA', 'f881cd01-e101-4f0e-8d12-2f174d302212', 'http://thirdwx.qlogo.cn/mmopen/vi_32/ygUe1BziaHLxHrUCuWdOFuTVUUo9WBgnLBNicTlueMWNygtXhtosWKMKl9FLe3zurA2GMK4zzTCIoZytS0vibTuKA/132', '1571497558148', '1575167522177', '广州', '广东', '1', '中国');
+INSERT INTO `user` VALUES ('2', '测试账号', 'a', 'a', 'http://thirdwx.qlogo.cn/mmopen/vi_32/ygUe1BziaHLxHrUCuWdOFuTVUUo9WBgnLBNicTlueMWNygtXhtosWKMKl9FLe3zurA2GMK4zzTCIoZytS0vibTuKA/132', '1', '1', '无', '无', '0', '无');

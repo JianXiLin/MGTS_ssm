@@ -440,7 +440,6 @@ img {
             position: relative;
             z-index: 1;
             @include flex(0 0 90px);
-            //width: 90px;
             display: block;
             text-align: center;
             border-left: 1px solid $border-color;
