@@ -50,7 +50,7 @@ public class UserDaoTest {
 
 	@Test
 	public void testSelUserByToken(){
-		User user = userDao.selUserByToken("0d9de551-1c23-4812-a34f-26025779966c");
+		User user = userDao.selUserByToken("a");
 		System.out.println(user.toString()+"---------");
 	}
 

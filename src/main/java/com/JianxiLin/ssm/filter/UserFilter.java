@@ -53,10 +53,7 @@ public class UserFilter implements Filter {
                 }
             }
         filterChain.doFilter(servletRequest,servletResponse);
-            request.getSession().removeAttribute("user");
-        Cookie cookie = new Cookie("token", null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
+
 
     }
 

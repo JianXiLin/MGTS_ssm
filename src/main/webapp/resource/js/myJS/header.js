@@ -57,7 +57,7 @@ $(function () {
                         //     res.wechatUserDTO.nickname
                         // )
 
-                        // $.cookie('token', res.token);
+                        $.cookie('token', res.token);
                         console.log(res.token)
                         window.location.reload()
                     } else if (res.auth == false) {

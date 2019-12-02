@@ -159,7 +159,9 @@ public class GoodsServiceImpl implements GoodsService {
      */
     private Goods toGoods(PendingGoodsDTO pendingGoodsDTO){
         Goods goods = new Goods();
-        goods.setId(pendingGoodsDTO.getGoodsId());
+        if(pendingGoodsDTO.getGoodsId()!=null && pendingGoodsDTO.getGoodsId() != 0){
+            goods.setId(pendingGoodsDTO.getGoodsId());
+        }
         goods.setType(gTypeDao.selTypeIdByName(pendingGoodsDTO.getGoodsTypeName()));
         goods.setTypeName(pendingGoodsDTO.getGoodsTypeName());
         goods.setGoodsName(pendingGoodsDTO.getGoodsName());
