@@ -95,12 +95,22 @@
                     </div>
                     <div class="form-group">
                         <div id="addFormPicName" class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="col-sm-2 btn btn-primary" data-toggle="modal"
+                            <button id="fileBtn" type="button" class="col-sm-2 btn btn-primary" data-toggle="modal"
                                     data-target="#selectPicModal">添加图片
                             </button>
                             <img id="goodsImg" style="width:50px" src="${goods.goodsPicture}"/>
                         </div>
                         <input type="hidden" id="addFormPic" name="goodsPicture" class="form-control" value="">
+                        <div class="progress" style="
+						                background-color: #fff;
+						                margin: 10px 0 0 3%;
+										width:80%;
+
+						            ">
+                            <div id="file_progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

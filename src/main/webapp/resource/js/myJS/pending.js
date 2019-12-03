@@ -77,36 +77,50 @@ $(function() {
 			formData.append('smfile', file.files[i]);
 			ajaxUploadToSM(formData)
 		}
+
 		// alert("上传成功")
 	}
 
 
 	function ajaxUploadToSM(formData) {
 
-		// alert("上传中。。。。")
 		$.ajax({
 			type: "post",
 			dataType: "json",
 			url: "https://sm.ms/api/upload",
-			async: false, //异步  true 同步
+			async: true, //异步  true 同步 false
 			cache: false, //缓存 false的话会在url后面加一个时间缀，让它跑到服务器获取结果。
-			contentType: false, //上传的时候必须要 
+			contentType: false, //上传的时候必须要
 			processData: false,
 			data: formData,
+            beforeSend : function(){
+				console.log("before")
+                $('#file_progress').attr('style','width:20%');
+            },
+            complete: function(){
+                console.log("complete")
+                $('#file_progress').attr('style','width:100%');
+            },
 			success: function(data) {
-				console.log(data);
-				var url = '';
-				if (data.success) {
-					url = data.data.url;
-				} else {
-					var rep = /https?:\/\/(?:[-\w.]|(?:%[\da-fA-F]{2})|\/)+/;
-					var str = data.message
-					url = rep.exec(str)
-				}
-				$('#addFormPic').val(url);
-				$('#goodsImg').attr({src: url});
+                console.log("success")
+                $('#file_progress').attr('style','width:80%');
+                $('#fileBtn').html('修改图片')
+                console.log(data);
+                var url = '';
+                if (data.success) {
+                    url = data.data.url;
+                } else {
+                    var rep = /https?:\/\/(?:[-\w.]|(?:%[\da-fA-F]{2})|\/)+/;
+                    var str = data.message
+                    url = rep.exec(str)
+                }
+                $('#addFormPic').val(url);
+                $('#goodsImg').attr({src: url});
 			},
 			error: function(data) {
+                console.log("error")
+                $('#file_progress').attr('style','width:80%');
+                $('#fileBtn').html('修改图片')
 				console.log(data);
 			},
 		})

@@ -142,8 +142,6 @@
     <%@include file="common/footer.jsp"%>
     <%@include file="common/script.jsp"%>
 
-
-    <script src="<%=request.getContextPath()%>/resource/js/myJS/header.js"></script>
 </body>
 
 </html>

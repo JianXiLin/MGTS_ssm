@@ -125,8 +125,37 @@
 						}
 					);
 
-                }
+                }/*end  initWeChatLoginImg*/
                 initWeChatLoginImg();
+
+                var t = setInterval(queryWeixi, 1000)
+                function queryWeixi() {
+                    $.ajax({
+                        url: '/user/WechatAuthState',
+                        method: 'post',
+                        data: {
+                            uuid: uuid
+                        },
+                        dataType: 'json',
+                        success: function (res) {
+                            if (res.errcode == 0) {
+                                if (res.auth == true) {
+                                    clearInterval(t)
+                                    //授权成功
+                                    window.opener=null;
+                                    window.open('','_self');
+                                    window.close();
+                                } else if (res.auth == false) {
+                                    console.log("等待..")
+                                } else {
+                                    alert("服务器出错")
+                                    clearInterval(t)
+                                }
+
+                            }
+                        }
+                    })/*end 轮询ajax*/
+                }/*end queryWeixinisAuth*/
 
 
             })/*end jqury*/

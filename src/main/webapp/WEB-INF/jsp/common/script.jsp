@@ -20,7 +20,9 @@
 <script src="<%= request.getContextPath()%>/resource/js/classy-nav.min.js"></script>
 <!-- Active js -->
 <script src="<%= request.getContextPath()%>/resource/js/active.js"></script>
-<%-- login_register js --%>
+<!-- login_register js -->
 <script src="<%= request.getContextPath()%>/resource/js/login-register.js"></script>
-<%-- 二维码.js--%>
+<!-- 二维码.js-->
 <script src="<%=request.getContextPath()%>/resource/js/jquery/jquery.qrcode.min.js" type="text/javascript"></script>
+<!-- header.js -->
+<script src="<%=request.getContextPath()%>/resource/js/myJS/header.js" type="text/javascript"></script>

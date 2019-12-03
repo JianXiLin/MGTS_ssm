@@ -19,6 +19,7 @@ $(function () {
             url: '/user/getWechatLogin',
             method: 'get',
             success: function (data) {
+                alert("getLogin")
                 uuid = data.uuid;
                 window.open('/user/toWeChatPage?uuid=' + data.uuid)
             }
@@ -76,6 +77,7 @@ $(function () {
      * 退出登录
      */
     function logoutWechat() {
+        console.log("1");
         $.ajax({
             url: '/user/logout',
             method: 'get',
@@ -83,6 +85,9 @@ $(function () {
                 //退出登录
                 $.cookie('token', null);
                 window.location.reload();
+            },
+            erorr: function (date) {
+                console.log(date)
             }
         })/*end 轮询ajax*/
     }/*end logoutWechat*/

@@ -141,6 +141,7 @@ public class UserController {
 
             }else{
                 //登录失败
+                System.out.println(code);
             }
         }
         return "test";
