@@ -19,7 +19,7 @@ $(function () {
             url: '/user/getWechatLogin',
             method: 'get',
             success: function (data) {
-                alert("getLogin")
+
                 uuid = data.uuid;
                 window.open('/user/toWeChatPage?uuid=' + data.uuid)
             }

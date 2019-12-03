@@ -83,7 +83,8 @@ $(function() {
 
 
 	function ajaxUploadToSM(formData) {
-
+        $('#file_progress').attr('style','width:0%');
+        $('#file_progress').html('')
 		$.ajax({
 			type: "post",
 			dataType: "json",
@@ -96,14 +97,17 @@ $(function() {
             beforeSend : function(){
 				console.log("before")
                 $('#file_progress').attr('style','width:20%');
+                $('#file_progress').html('20%')
             },
             complete: function(){
                 console.log("complete")
                 $('#file_progress').attr('style','width:100%');
+                $('#file_progress').html('100%')
             },
 			success: function(data) {
                 console.log("success")
                 $('#file_progress').attr('style','width:80%');
+                $('#file_progress').html('80%')
                 $('#fileBtn').html('修改图片')
                 console.log(data);
                 var url = '';
@@ -115,12 +119,11 @@ $(function() {
                     url = rep.exec(str)
                 }
                 $('#addFormPic').val(url);
-                $('#goodsImg').attr({src: url});
+                $('#goodsImg').attr('src',url);
+                console.log(url)
 			},
 			error: function(data) {
                 console.log("error")
-                $('#file_progress').attr('style','width:80%');
-                $('#fileBtn').html('修改图片')
 				console.log(data);
 			},
 		})
