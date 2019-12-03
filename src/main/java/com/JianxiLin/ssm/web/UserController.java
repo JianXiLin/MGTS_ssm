@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
@@ -156,28 +155,19 @@ public class UserController {
     @RequestMapping(value = "/WechatAuthState",method = RequestMethod.POST)
     @ResponseBody
     public WechatAuthStateDTO WechatAuthState(HttpServletResponse response){
-        if(wechatAuthStateDTO.isAuth()){
-            Cookie cookie = new Cookie("token", wechatAuthStateDTO.getToken());
-            response.addCookie(cookie);
-        }
         return wechatAuthStateDTO;
     }
 
     /** =====微信授权登录功能=======
      * 退出登录
      * @param request
-     * @param response
      * @return
      */
+    @ResponseBody
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
-    public String logout(HttpServletRequest request,
-                         HttpServletResponse response){
+    public void logout(HttpServletRequest request){
         request.getSession().removeAttribute("user");
-        Cookie cookie = new Cookie("token", null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-
-        return "redirect:/";
+        wechatAuthStateDTO = new WechatAuthStateDTO();
     }
 
 }
