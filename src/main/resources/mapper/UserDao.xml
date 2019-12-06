@@ -23,6 +23,12 @@
 		select * from user
 		where account_id = #{accountId}
 	</select>
+
+	<!--根据用户id查询用户信息-->
+	<select id="selUserById" resultType="com.JianxiLin.ssm.entity.User">
+		select * from user
+		where id = #{id}
+	</select>
 	<!--根据用户Token查询用户信息-->
 	<select id="selUserByToken" resultType="com.JianxiLin.ssm.entity.User">
 		select * from user

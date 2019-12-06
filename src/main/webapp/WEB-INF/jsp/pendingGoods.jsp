@@ -15,6 +15,28 @@
     <!-- Favicon  -->
     <%@include file="common/head_css.jsp" %>
     <link href="https://cdn.bootcss.com/bootstrap-fileinput/4.5.1/css/fileinput.css" rel="stylesheet">
+    <style>
+        .userNav a{
+            line-height: 100% !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+        .contact-data .card{
+            border:none;
+        }
+        .contact-data .card .card-header{
+            background-color: white !important;
+            border: none;
+
+        }
+        .contact-data div a{
+            font-size: 15px;
+        }
+        .contact-data div a:hover{
+            font-size: 15px;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +69,11 @@
 
             <!-- 挂起物品填写 -->
             <div class="col-lg-8 offset-lg-2">
+
                 <form class="col-lg-12 form-horizontal" id="form" method="post" action="/goods/pending">
+                    <c:if test="${error!=null}">
+                        <span class="alert alert-danger" role="alert" style="display: inline-block">${error}</span>
+                    </c:if>
                     <input type="hidden" name="goodsId" value="${goods.id}">
                     <input type="hidden" name="userAccountId" value="${sessionScope.user.accountId}">
                     <div class="form-group">
@@ -79,7 +105,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 control-label">物品类型：</label>
+                        <label class="col-sm-2 control-label" style="text-align: center">物品类型：</label>
                         <div class="col-sm-4">
                             <select class="col-sm-12 form-control" name="goodsTypeName">
                                 <option <c:out value="${goods.type == 1?'selected':''}"/>>图书教材</option>
@@ -118,9 +144,8 @@
                                 <button type="submit" class="btn btn-default">修改</button>
                             </c:if>
                             <c:if test="${goods==null}">
-                                <button type="submit" class="btn btn-default">发布</button>
+                                <button type="submit" class="btn btn-default" ${error==null?'':'disabled'} >发布</button>
                             </c:if>
-
                         </div>
                     </div>
                 </form>

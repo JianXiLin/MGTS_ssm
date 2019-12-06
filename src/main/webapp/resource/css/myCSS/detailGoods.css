@@ -1,7 +1,7 @@
 .container{
 	padding:0 6%;
 }
-/* 路径导航 */
+/* =======路径导航======= */
 .myBreadcrumb{
 	font-size: 20px;
 	display: flex;
@@ -21,13 +21,13 @@
 }
 .oneGoodsData {}
 
-/* 物品图片 */
+/* =======物品图片 =======*/
 .oneGoodsData .goodsImg {
 	width: 100%;
 	height: auto;
 }
 
-/* 物品简要信息 */
+/* =======物品简要信息======= */
 .oneGoodsData .info {
 	padding: 5% 20px;
 }
@@ -69,7 +69,38 @@
 	background-color: rgba(33,33,33 ,1);
 	box-shadow:3px 3px 5px rgba(66, 66, 66, 0.5) ;
 }
-/* 用户信息 */
+.oneGoodsData .info .contact {
+	width: 100%;
+}
+.oneGoodsData .info .contact .toLogin a{
+	font-size: 15px;
+	margin-right: 4px;
+
+}
+.oneGoodsData .info .contact div {
+	margin-top: 10px;
+}
+.oneGoodsData .info .contact div img {
+	width: 8%;
+}
+.oneGoodsData .info .contact div span {
+	font-size: 20px;
+	margin-top: 10px;
+}
+/*收藏功能*/
+.oneGoodsData .info .heartBtn {
+    width: 13%;
+    font-size: 40px;
+    background-color: white;
+    color: red;
+}
+.oneGoodsData .info .heartBtn:hover,
+.oneGoodsData .info .heartBtn:focus {
+    color: red;
+    background-color: white;
+    box-shadow: none;
+}
+/* =======用户信息 =======*/
 .oneGoodsData .user {
 	width: 50%;
 }
@@ -112,10 +143,24 @@
 	box-shadow:3px 3px 5px rgba(66, 66, 66, 0.5) ;
 }
 .oneGoodsData .comment button{
+	color: white;
 	background-color: rgba(66, 66, 66, 0.6);
-	border-color: rgba(66, 66, 66, 0.6);
+	border:none;
 }
-.oneGoodsData .comment button:hover{
+.oneGoodsData .comment button:hover,
+.oneGoodsData .comment button:focus{
+	border: none;
 	background-color: rgba(33,33,33 ,1);
-	border-color: rgba(66, 66, 66, 1);
+	box-shadow:3px 3px 5px rgba(66, 66, 66, 0.5) ;
+}
+.oneGoodsData .comment img {
+	width: 50px;
+}
+.oneGoodsData .comment .text {
+	text-indent: 2em;
+	font-size: 20px;
+}
+.oneGoodsData .comment .text .time{
+	display: block;
+	font-size: 12px;
 }

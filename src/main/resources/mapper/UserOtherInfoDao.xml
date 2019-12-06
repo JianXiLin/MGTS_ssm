@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JianxiLin.ssm.dao.UserOtherInfoDao">
+	<!--插入联系方式信息-->
+	<select id="insContact" >
+		insert into user_other_info
+		(id,user_id,wechat,phone_number,qq)
+		values
+		(default,#{contact.userId},#{contact.wechat},#{contact.phoneNumber},#{contact.qq})
+	</select>
+
+	<!--更新用户联系方式信息-->
+	<update id="updContact">
+		UPDATE user_other_info
+		SET
+		wechat = #{contact.wechat},phone_number = #{contact.phoneNumber},qq = #{contact.qq}
+		where
+		user_id = #{contact.userId}
+	</update>
+	<!--根据Id查询用户联系方式信息-->
+	<select id="selContactById" resultType="com.JianxiLin.ssm.entity.Contact">
+		select * from user_other_info
+		where id = #{id}
+	</select>
+	<!--根据用户id查询用户联系方式信息-->
+	<select id="selContactByUserId" resultType="com.JianxiLin.ssm.entity.Contact">
+		select * from user_other_info
+		where user_id = #{UserId}
+	</select>
+	<!--根据用户accountId查询用户联系方式信息-->
+	<select id="selContactByAccountId" resultType="com.JianxiLin.ssm.entity.Contact">
+		select * from user_other_info
+		where user_id = (select id from user where account_id=#{accountId})
+	</select>
+
+</mapper>

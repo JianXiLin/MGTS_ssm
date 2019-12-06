@@ -1,9 +1,6 @@
 package com.JianxiLin.ssm.service.impl;
 
-import com.JianxiLin.ssm.dao.GLabelsDao;
-import com.JianxiLin.ssm.dao.GTypeDao;
-import com.JianxiLin.ssm.dao.GoodsDao;
-import com.JianxiLin.ssm.dao.UserDao;
+import com.JianxiLin.ssm.dao.*;
 import com.JianxiLin.ssm.dto.GoodsPageDTO;
 import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.dto.PendingGoodsDTO;
@@ -26,6 +23,8 @@ public class GoodsServiceImpl implements GoodsService {
     private UserDao userDao;
     @Autowired
     private GLabelsDao gLabelsDao;
+    @Autowired
+    private UserOtherInfoDao userOtherInfoDao;
 
     /**
      * 根据用户id 获取物品信息，附带其用户信息
@@ -118,13 +117,13 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Integer pendingOrUpdGoods(PendingGoodsDTO pendingGoodsDTO){
         Goods insGoods = toGoods(pendingGoodsDTO);
-
         Goods DBGoods = goodsDao.selGoodsById(insGoods.getId());
         if(DBGoods != null){
             insGoods.setTradingStatus(DBGoods.getTradingStatus());
         }else{
             insGoods.setTradingStatus("0");
         }
+
 
         insOrUpdateGoods(insGoods);
         return insGoods.getType();
@@ -157,7 +156,7 @@ public class GoodsServiceImpl implements GoodsService {
      * @param pendingGoodsDTO
      * @return
      */
-    private Goods toGoods(PendingGoodsDTO pendingGoodsDTO){
+    public Goods toGoods(PendingGoodsDTO pendingGoodsDTO){
         Goods goods = new Goods();
         if(pendingGoodsDTO.getGoodsId()!=null && pendingGoodsDTO.getGoodsId() != 0){
             goods.setId(pendingGoodsDTO.getGoodsId());

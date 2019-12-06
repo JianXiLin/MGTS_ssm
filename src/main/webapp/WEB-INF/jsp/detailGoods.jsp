@@ -71,6 +71,35 @@
                     <div class="price">
                         价格 : <span>￥ ${goodsWithUser.goods.price}</span>
                     </div>
+                    <!-- 联系方式 -->
+                    <div class="contact">
+                        <c:if test="${user == null}">
+                            <div class="toLogin">
+                                <a href="#" onclick="openLoginModal();">登录</a>后即可查看联系方式
+                            </div>
+                        </c:if>
+                        <c:if test="${user != null && contact != null}">
+                            <c:if test="${contact.wechat != null}">
+                                <div>
+                                    <img src="<%=request.getContextPath()%>/resource/img/icon_wechat.png"> :
+                                    <span>${contact.wechat}</span>
+                                </div>
+                            </c:if>
+                            <c:if test="${contact.qq != null}">
+                                <div>
+                                    <img src="<%=request.getContextPath()%>/resource/img/icon_qq.png"> :
+                                    <span>${contact.qq}</span>
+                                </div>
+                            </c:if>
+                            <c:if test="${contact.phoneNumber != null}">
+                                <div>
+                                    <img src="<%=request.getContextPath()%>/resource/img/icon_phone.png"> :
+                                    <span>${contact.phoneNumber}</span>
+                                </div>
+                            </c:if>
+                        </c:if>
+
+                    </div>
                     <!-- Date/Time -->
                     <p class="time">Released on <fmt:formatDate value="${dateValue}"
                                                                 pattern="yyyy年 MM月 dd日  HH:mm:ss"/></p>
@@ -80,10 +109,12 @@
                         </a>
                     </c:if>
                     <c:if test="${goodsWithUser.user.accountId != sessionScope.user.accountId}">
-                        <a href="/">
-                            <button type="button" class="btn tradeBtn">交易</button>
-                        </a>
+                        <button id="cruelty" type="button" class="btn tradeBtn heartBtn"><img
+                                src="<%=request.getContextPath()%>/resource/img/cruelty.png"></button>
+                        <button id="heart" type="button" class="btn tradeBtn heartBtn" style="display: none;"><img
+                                src="<%=request.getContextPath()%>/resource/img/heart.png"></button>
                     </c:if>
+
                 </div>
                 <!-- 物品简要信息 end-->
             </div>
@@ -104,51 +135,49 @@
             <!-- 物品交易条件 end-->
             <!-- Comments Form start-->
             <div class="col-lg-12 my-4 comment">
+                <!--评论输入框-->
                 <h5 class="">Leave a Comment:</h5>
                 <div class="card-body">
-                    <form>
+                    <form id="commentForm" action="/goods/insComment" method="post">
+                        <input id="goodsId" type="hidden" name="goodsId" value="${goodsWithUser.goods.id}">
+                        <input id="userId" type="hidden" name="userId" value="${sessionScope.user.id}">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" name="content"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <span id="comment" class="d-inline-block" data-trigger="hover"
+                        ${sessionScope.user ==null?'data-content=\"请您先登录\"':''} >
+                            <button type="submit"
+                                    class="btn tradeBtn"
+                            ${sessionScope.user ==null?' style="pointer-events: none;" disabled':''} >评论
+                            </button>
+                        </span>
+                        <c:if test="${user == null}">
+                            <span class="">
+                                <a href="#" onclick="openLoginModal();"
+                                   style="font-size: 15px;margin: 0 5px 0 10px;">登录</a>后即可进行评论
+                            </span>
+                        </c:if>
                     </form>
                 </div>
-            </div>
-            <!-- Comments Form end-->
-            <!-- Single Comment -->
-            <div class="media col-lg-12 mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    vvvv
-                </div>
-            </div>
-
-            <!-- Comment with nested comments -->
-            <div class="media col-lg-12 mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    aaaa
-
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            bbb
+                <!--评论内容-->
+                <div id="commentText">
+                    <c:forEach items="${chatWithUserDTOS}" var="chatWithUserDTO">
+                        <div class="media col-lg-12 mt-4">
+                            <img class="d-flex mr-3 rounded-circle" src="${chatWithUserDTO.user.avaterUrl}" alt="">
+                            <div class="media-body">
+                                <h5 class="mt-0">${chatWithUserDTO.user.name}</h5>
+                                <jsp:setProperty name="dateValue" property="time"
+                                                 value="${chatWithUserDTO.chat.gmtUpdate}"/>
+                                <span class="time" style="">on  <fmt:formatDate value="${dateValue}"
+                                                                                pattern="yyyy.MM.dd HH:mm:ss"/></span>
+                                <div class="text">${chatWithUserDTO.chat.content}</div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            aaaa
-                        </div>
-                    </div>
-
+                    </c:forEach>
                 </div>
+
             </div>
+
 
         </div>
         <!-- ##### 页面主内容 End #### -->
@@ -161,6 +190,9 @@
 <!-- ##### Footer Area End ##### -->
 
 <%@include file="common/script.jsp" %>
+
+<script src="<%=request.getContextPath()%>/resource/js/jquery.validate.min.js"></script>
+<script src="<%=request.getContextPath()%>/resource/js/myJS/detailGoods.js" type="text/javascript"></script>
 
 </body>
 

@@ -28,6 +28,13 @@ public interface UserDao {
     User selUserByAccountId(@Param("accountId")String accountId);
 
     /**
+     * 根据用户id查找用户
+     * @param id
+     * @return
+     */
+    User selUserById(@Param("id")Integer id);
+
+    /**
      * 根据用户token查找用户
      * @param token 用户浏览器识别用户（存放于cookie中）
      * @return

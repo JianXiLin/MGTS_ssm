@@ -1,5 +1,6 @@
 package com.JianxiLin.ssm.dao;
 
+import com.JianxiLin.ssm.entity.Chat;
 import com.JianxiLin.ssm.entity.Goods;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +15,8 @@ import java.util.List;
 public class GoodsTest {
     @Autowired
     private GoodsDao goodsDao;
+    @Autowired
+    private HistoryDao historyDao;
 
     @Test
     public void testSelGoodsNumByType() {
@@ -34,5 +37,12 @@ public class GoodsTest {
         }
     }
 
+    @Test
+    public void testSelChatHistory(){
+        List<Chat> chats = historyDao.selChatsByGoodsId(3);
+        for (Chat c:chats) {
+            System.out.println(c.toString());
 
+        }
+    }
 }

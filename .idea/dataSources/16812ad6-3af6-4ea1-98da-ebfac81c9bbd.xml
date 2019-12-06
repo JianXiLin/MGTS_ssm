@@ -943,32 +943,35 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="239" parent="6" name="chat_history">
-      <Comment>????</Comment>
+      <Comment>聊天记录</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="240" parent="6" name="collection_history">
-      <Comment>????</Comment>
+      <Comment>收藏记录</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="241" parent="6" name="g_labels">
+      <Comment>物品标签</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="242" parent="6" name="g_type">
+      <Comment>物品类型</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="243" parent="6" name="goods">
+      <Comment>物品</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="244" parent="6" name="test">
+    <table id="244" parent="6" name="transaction_history">
+      <Comment>交易记录</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="245" parent="6" name="transaction_history">
-      <Comment>???????????</Comment>
+    <table id="245" parent="6" name="user">
+      <Comment>用户</Comment>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="246" parent="6" name="user">
-      <Comment>???</Comment>
-      <Collation>utf8_general_ci</Collation>
+    <table id="246" parent="6" name="user_other_info">
+      <Comment>用户的额外信息</Comment>
     </table>
     <column id="247" parent="239" name="id">
       <Position>1</Position>
@@ -977,35 +980,41 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="239" name="sender&#x9;id">
+    <column id="248" parent="239" name="sender_id">
       <Position>2</Position>
+      <Comment>商家id
+</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="239" name="receiverid&#x9;id">
+    <column id="249" parent="239" name="receiver_id">
       <Position>3</Position>
+      <Comment>买家id</Comment>
       <DataType>int(10)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="239" name="goodsid">
+    <column id="250" parent="239" name="goods_id">
       <Position>4</Position>
+      <Comment>物品id</Comment>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="251" parent="239" name="content">
       <Position>5</Position>
+      <Comment>聊天的内容</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="252" parent="239" name="gmt_create">
       <Position>6</Position>
+      <Comment>创建时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="253" parent="239" name="gmt_update">
       <Position>7</Position>
+      <Comment>修改时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1021,13 +1030,13 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="240" name="goodsid">
+    <column id="256" parent="240" name="goods_id">
       <Position>2</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="240" name="user&#x9;id">
+    <column id="257" parent="240" name="user_id">
       <Position>3</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1063,6 +1072,7 @@
     </column>
     <column id="263" parent="241" name="is_hot">
       <Position>3</Position>
+      <Comment>热门物品</Comment>
       <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
@@ -1108,56 +1118,71 @@
     </column>
     <column id="271" parent="243" name="goods_name">
       <Position>2</Position>
+      <Comment>物品名称
+</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="272" parent="243" name="goods_describe">
       <Position>3</Position>
+      <Comment>物品描述</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="273" parent="243" name="price">
       <Position>4</Position>
+      <Comment>价格
+</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="274" parent="243" name="trans_conditions">
       <Position>5</Position>
+      <Comment>易物条件</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="275" parent="243" name="gmt_create">
       <Position>6</Position>
+      <Comment>创建时间</Comment>
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="276" parent="243" name="gmt_update">
       <Position>7</Position>
+      <Comment>更新时间
+</Comment>
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="277" parent="243" name="goods_picture">
       <Position>8</Position>
+      <Comment>物品图片
+</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="278" parent="243" name="goods_video">
       <Position>9</Position>
+      <Comment>物品视频</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="279" parent="243" name="trading_status">
       <Position>10</Position>
+      <Comment>物品交易状态(0,1)</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="280" parent="243" name="type">
       <Position>11</Position>
+      <Comment>物品类型id</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="281" parent="243" name="userId">
       <Position>12</Position>
+      <Comment>拥有者id</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1178,148 +1203,171 @@
     </foreign-key>
     <column id="285" parent="244" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="286" parent="244" name="name">
-      <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="287" parent="244" name="col">
-      <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="288" parent="244" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="289" parent="245" name="id">
-      <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="245" name="sellerId">
+    <column id="286" parent="244" name="sellerId">
       <Position>2</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="245" name="buyerId">
+    <column id="287" parent="244" name="buyerId">
       <Position>3</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="245" name="goodsid">
+    <column id="288" parent="244" name="goodsid">
       <Position>4</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="245" name="gmt_create">
+    <column id="289" parent="244" name="gmt_create">
       <Position>5</Position>
-      <Comment>????</Comment>
+      <Comment>创建时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="245" name="gmt_update">
+    <column id="290" parent="244" name="gmt_update">
       <Position>6</Position>
-      <Comment>????</Comment>
+      <Comment>修改时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="245" name="trans_mode">
+    <column id="291" parent="244" name="trans_mode">
       <Position>7</Position>
-      <Comment>????</Comment>
+      <Comment>交易方式</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="245" name="trans_status">
+    <column id="292" parent="244" name="trans_status">
       <Position>8</Position>
-      <Comment>????</Comment>
+      <Comment>交易状态</Comment>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="245" name="gmt_trans">
+    <column id="293" parent="244" name="gmt_trans">
       <Position>9</Position>
-      <Comment>??????</Comment>
+      <Comment>交易时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="298" parent="245" name="PRIMARY">
+    <key id="294" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="299" parent="246" name="id">
+    <column id="295" parent="245" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="246" name="name">
+    <column id="296" parent="245" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="246" name="account_id">
+    <column id="297" parent="245" name="account_id">
       <Position>3</Position>
+      <Comment>wechat的唯一标识</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="246" name="token">
+    <column id="298" parent="245" name="token">
       <Position>4</Position>
+      <Comment>浏览器登录标识</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="246" name="avater_url">
+    <column id="299" parent="245" name="avater_url">
       <Position>5</Position>
+      <Comment>头像</Comment>
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="246" name="gmt_create">
+    <column id="300" parent="245" name="gmt_create">
       <Position>6</Position>
+      <Comment>创建时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="246" name="gmt_update">
+    <column id="301" parent="245" name="gmt_update">
       <Position>7</Position>
+      <Comment>修改时间</Comment>
       <DataType>bigint(19)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="246" name="city">
+    <column id="302" parent="245" name="city">
       <Position>8</Position>
+      <Comment>城市</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="246" name="province">
+    <column id="303" parent="245" name="province">
       <Position>9</Position>
+      <Comment>省份</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="246" name="sex">
+    <column id="304" parent="245" name="sex">
       <Position>10</Position>
+      <Comment>性别(0,1)</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="246" name="country">
+    <column id="305" parent="245" name="country">
       <Position>11</Position>
+      <Comment>国家</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="310" parent="246" name="PRIMARY">
+    <key id="306" parent="245" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="307" parent="246" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="308" parent="246" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="246" name="wechat">
+      <Position>3</Position>
+      <Comment>微信号</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="246" name="phone_number">
+      <Position>4</Position>
+      <Comment>电话号码</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="311" parent="246" name="qq">
+      <Position>5</Position>
+      <Comment>QQ号码</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="312" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

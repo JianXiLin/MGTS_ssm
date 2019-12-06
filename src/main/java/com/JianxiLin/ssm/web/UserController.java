@@ -27,24 +27,6 @@ public class UserController {
     //用于存储微信授权登录的二维码url
     public static HashMap<String,String> imgUrls = new HashMap<>();
 
-    /**
-     *
-     * @return
-     */
-    @RequestMapping(value = "/person/{userId}")
-    public String personalData(@PathVariable(value = "userId") String userId,
-                               Model model){
-        if(userId == null){
-            //跳转到首页
-            return "redirect:/";
-        }
-
-        //添加参数到请求中，可在jsp页面中使用${参数}获取值
-        model.addAttribute("参数","这是添加到请求里的参数");
-        //跳转到个人页面
-        return "personalPage";
-    }
-
 
 
     /** =====微信授权登录功能=======
