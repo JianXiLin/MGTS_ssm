@@ -6,9 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e13bbc38-c1b0-4dbf-ab9b-5a0e8cc3ee46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp" afterDir="false" />
+    <list default="true" id="e13bbc38-c1b0-4dbf-ab9b-5a0e8cc3ee46" name="Default Changelist" comment="修复收藏功能bug">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/personalGoods.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/mgts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/mgts.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,24 +57,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/UserController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getWechatLogin#0;class#UserController#0" />
-              </folding>
+            <state relative-caret-position="-713">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/pending.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="124" column="28" lean-forward="true" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/sql/mgts.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
-            </state>
+            <state relative-caret-position="-276" />
           </provider>
         </entry>
       </file>
@@ -128,8 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/test.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/personalPage.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/personalPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/goodsByType.jsp" />
@@ -150,7 +161,6 @@
         <option value="16812ad6-3af6-4ea1-98da-ebfac81c9bbd/schema/mgts/table/user_other_info.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/ContactDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserOtherInfoDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserOtherInfoDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/service/impl/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/entity/Contact.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/service/UserService.java" />
@@ -179,6 +189,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resource/css/myCSS/detailGoods.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/GoodsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserOtherInfoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/personalGoods.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/personalGoods.jsp" />
       </list>
     </option>
   </component>
@@ -215,8 +228,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="680" />
-    <option name="y" value="-30" />
+    <option name="x" value="925" />
+    <option name="y" value="75" />
     <option name="width" value="785" />
     <option name="height" value="875" />
   </component>
@@ -252,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -293,20 +307,34 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MGTS_ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MGTS_ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MGTS_ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MGTS_ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575623474948" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575645266530" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyCodes/JavaCode/community" />
@@ -319,11 +347,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\WEB-INF\jsp" />
+      <recent name="E:\General date\Project\MGTS_ssm\src\main\resources\sql" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\js" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\js\jquery" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\js\myJS" />
-      <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\css\myCSS" />
-      <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\WEB-INF\jsp" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -336,11 +364,11 @@
       <recent name="com.yingjun.ssm.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\WEB-INF" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\img" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\resources\mapper" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\css\myCSS" />
       <recent name="E:\General date\Project\MGTS_ssm\src\main\resources\sql" />
-      <recent name="E:\General date\Project\MGTS_ssm\src\main\webapp\resource\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -672,7 +700,10 @@
       <workItem from="1575611697802" duration="6180000" />
       <workItem from="1575618293867" duration="138000" />
       <workItem from="1575618739728" duration="2500000" />
-      <workItem from="1575622130585" duration="1219000" />
+      <workItem from="1575622130585" duration="4393000" />
+      <workItem from="1575627402992" duration="44000" />
+      <workItem from="1575637390602" duration="974000" />
+      <workItem from="1575642249607" duration="1919000" />
     </task>
     <task id="LOCAL-00001" summary="实现用户登录功能">
       <created>1572052251858</created>
@@ -709,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575364967815</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修复收藏功能bug">
+      <created>1575623569455</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575623569455</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -745,7 +783,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="391630000" />
+    <option name="totallyTimeSpent" value="397741000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -758,9 +796,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834985" visible="true" weight="0.269437" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834985" visible="true" weight="0.2386059" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -770,7 +807,7 @@
       <window_info id="Web" order="7" sideWeight="0.50165015" side_tool="true" weight="0.24530831" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3865772" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4966488" visible="true" weight="0.2885906" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4966488" weight="0.27114093" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -780,7 +817,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5033512" side_tool="true" weight="0.40939596" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32885906" />
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32885906" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.34362417" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.4442953" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32885906" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.47114095" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.3342282" />
@@ -871,7 +908,8 @@
     <MESSAGE value="修改sql语句、修改导航栏的部分样式" />
     <MESSAGE value="开启微信授权登录" />
     <MESSAGE value="1、修改spring版本（5.2.1——&gt;4.2.0）:解决spring5.2.1不兼容 log4j版本&#10;2、修复登录、退出登录无法正常使用(session中的值无法正常处理)。&#10;    方法:在后台实现对session中的值的添加、删除，改成在前端jquery实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、修改spring版本（5.2.1——&gt;4.2.0）:解决spring5.2.1不兼容 log4j版本&#10;2、修复登录、退出登录无法正常使用(session中的值无法正常处理)。&#10;    方法:在后台实现对session中的值的添加、删除，改成在前端jquery实现" />
+    <MESSAGE value="修复收藏功能bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复收藏功能bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -916,34 +954,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dto/PendingGoodsDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/entity/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/entity/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/service/GoodsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/service/impl/WechatUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
@@ -1012,20 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://16812ad6-3af6-4ea1-98da-ebfac81c9bbd/schema/mgts/table/goods">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserOtherInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dto/ChatWithUserDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -1033,34 +1029,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/pending.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="49" column="3" lean-forward="true" selection-end-line="49" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1148,25 +1120,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="26" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/css/myCSS/header.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Servers/Tomcat v8.5 Server at localhost-config/web.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/HistoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="18" column="56" lean-forward="true" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/entity/GoodsLabels.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1207,9 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1237,9 +1192,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://16812ad6-3af6-4ea1-98da-ebfac81c9bbd/schema/mgts/table/goods">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/GTypeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/HistoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/personalGoods.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-952">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4654#4660#0#HTML" expanded="true" />
+            <element signature="e#4660#4666#0#HTML" expanded="true" />
+            <element signature="e#4666#4672#0#HTML" expanded="true" />
+            <element signature="e#4673#4679#0#HTML" expanded="true" />
+            <element signature="e#4679#4685#0#HTML" expanded="true" />
+            <element signature="e#4685#4691#0#HTML" expanded="true" />
+            <element signature="e#4692#4698#0#HTML" expanded="true" />
+            <element signature="e#4698#4704#0#HTML" expanded="true" />
+            <element signature="e#4936#4942#0#HTML" expanded="true" />
+            <element signature="e#4942#4948#0#HTML" expanded="true" />
+            <element signature="e#4948#4954#0#HTML" expanded="true" />
+            <element signature="e#4955#4961#0#HTML" expanded="true" />
+            <element signature="e#4961#4967#0#HTML" expanded="true" />
+            <element signature="e#4967#4973#0#HTML" expanded="true" />
+            <element signature="e#4974#4980#0#HTML" expanded="true" />
+            <element signature="e#4980#4986#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/web/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state relative-caret-position="-158">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1248,11 +1265,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detailGoods.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/UserOtherInfoDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+        <state relative-caret-position="437">
+          <caret line="20" lean-forward="true" selection-start-line="15" selection-end-line="20" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/JianxiLin/ssm/dao/GoodsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-713">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resource/js/myJS/pending.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="124" column="28" lean-forward="true" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sql/mgts.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276" />
       </provider>
     </entry>
   </component>
