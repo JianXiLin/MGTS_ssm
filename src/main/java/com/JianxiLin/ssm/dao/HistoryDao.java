@@ -18,4 +18,7 @@ public interface HistoryDao {
 
     void delMyCollection(@Param("userId")Integer userId,
                        @Param("goodsId")Integer goodsId);
+
+    MyCollection selMyCollection(@Param("userId")Integer userId,
+                         @Param("goodsId")Integer goodsId);
 }

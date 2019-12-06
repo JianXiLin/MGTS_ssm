@@ -38,4 +38,11 @@
 		delete from collection_history
 		where user_id=#{userId} and goods_id=#{goodsId};
 	</delete>
+
+	<!--查询收藏信息-->
+	<select id="selMyCollection" resultType="com.JianxiLin.ssm.entity.MyCollection">
+		select * from collection_history
+		where user_id=#{userId} and goods_id=#{goodsId};
+	</select>
+
 </mapper>

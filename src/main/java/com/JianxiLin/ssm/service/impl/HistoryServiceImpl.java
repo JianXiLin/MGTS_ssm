@@ -56,13 +56,22 @@ public class HistoryServiceImpl implements HistoryService {
 
     @Override
     public void insCollectionHistory(Integer userId, Integer goodsId ){
-        MyCollection myCollection = new MyCollection();
+        MyCollection insCollection = new MyCollection();
         if(userId != null && goodsId !=null){
-            myCollection.setUserId(userId);
-            myCollection.setGoodsId(goodsId);
-            myCollection.setGmtCreate(System.currentTimeMillis());
-            myCollection.setGmtUpdate(myCollection.getGmtCreate());
-            historyDao.insMyCollection(myCollection);
+            MyCollection DBCollection = historyDao.selMyCollection(userId, goodsId);
+            if(null ==DBCollection){
+                //插入收藏信息
+                insCollection.setUserId(userId);
+                insCollection.setGoodsId(goodsId);
+                insCollection.setGmtCreate(System.currentTimeMillis());
+                insCollection.setGmtUpdate(insCollection.getGmtCreate());
+            }else {
+                //修改收藏时间
+                insCollection = DBCollection;
+                insCollection.setGmtUpdate(System.currentTimeMillis());
+            }
+
+            historyDao.insMyCollection(insCollection);
         }
     }
 
@@ -71,5 +80,14 @@ public class HistoryServiceImpl implements HistoryService {
         if(userId != null && goodsId !=null){
             historyDao.delMyCollection(userId,goodsId);
         }
+    }
+
+    @Override
+    public MyCollection selCollectionHistory(Integer userId, Integer goodsId) {
+        if(userId != null && goodsId !=null){
+            MyCollection myCollection = historyDao.selMyCollection(userId, goodsId);
+            return myCollection;
+        }
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.JianxiLin.ssm.service;
 
 import com.JianxiLin.ssm.dto.ChatWithUserDTO;
+import com.JianxiLin.ssm.entity.MyCollection;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface HistoryService{
     void insCollectionHistory(Integer userId,Integer goodsId);
 
     void delCollectionHistory(Integer userId,Integer goodsId);
+
+    MyCollection selCollectionHistory(Integer userId,Integer goodsId);
 }

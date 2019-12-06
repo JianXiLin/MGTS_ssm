@@ -95,7 +95,7 @@
     color: red;
 }
 .oneGoodsData .info .heartBtn:hover,
-.oneGoodsData .info .heartBtn:focus {
+.oneGoodsData .info .heartBtn:focus{
     color: red;
     background-color: white;
     box-shadow: none;

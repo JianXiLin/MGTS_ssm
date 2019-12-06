@@ -7,8 +7,7 @@ $(function () {
             url: '/goods/insCollection',
             method: 'post',
             data:{
-                goodsId: $('#goodsId').val(),
-                userId: $('#userId').val()
+                goodsId: $('#goodsId').val()
             },
             success: function (data) {
                 $('#cruelty').attr('style', 'display:none')
@@ -22,11 +21,10 @@ $(function () {
     //收藏按钮
     $('#heart').click(function() {
         $.ajax({
-            url: '/goods/delCollection"',
+            url: '/goods/delCollection',
             method: 'post',
             data:{
-                goodsId: $('#goodsId').val(),
-                userId: $('#userId').val()
+                goodsId: $('#goodsId').val()
             },
             success: function (data) {
                 $('#heart').attr('style', 'display:none')

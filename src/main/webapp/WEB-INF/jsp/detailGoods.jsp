@@ -109,10 +109,12 @@
                         </a>
                     </c:if>
                     <c:if test="${goodsWithUser.user.accountId != sessionScope.user.accountId}">
-                        <button id="cruelty" type="button" class="btn tradeBtn heartBtn"><img
-                                src="<%=request.getContextPath()%>/resource/img/cruelty.png"></button>
-                        <button id="heart" type="button" class="btn tradeBtn heartBtn" style="display: none;"><img
-                                src="<%=request.getContextPath()%>/resource/img/heart.png"></button>
+                        <button id="cruelty" type="button" class="btn tradeBtn heartBtn"  ${isHeart?'style=\"display: none;\"':''}>
+                            <img src="<%=request.getContextPath()%>/resource/img/cruelty.png">
+                        </button>
+                        <button id="heart" type="button" class="btn tradeBtn heartBtn" ${isHeart?'':'style=\"display: none;\"' }>
+                            <img src="<%=request.getContextPath()%>/resource/img/heart.png">
+                        </button>
                     </c:if>
 
                 </div>

@@ -6,6 +6,7 @@ import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.dto.PendingGoodsDTO;
 import com.JianxiLin.ssm.entity.Contact;
 import com.JianxiLin.ssm.entity.Goods;
+import com.JianxiLin.ssm.entity.MyCollection;
 import com.JianxiLin.ssm.entity.User;
 import com.JianxiLin.ssm.service.impl.GoodsServiceImpl;
 import com.JianxiLin.ssm.service.impl.HistoryServiceImpl;
@@ -36,13 +37,24 @@ public class GoodsController {
      */
     @RequestMapping("/{goodsId}")
     public String getGoodsPage(@PathVariable("goodsId") Integer goodsId,
+                               HttpServletRequest request,
                                Model model){
         GoodsWithUserDTO goodsWithUser = goodsService.getGoodsWithUserById(goodsId);
         Contact contact = userService.getContactByUserId(goodsWithUser.getUser().getId());
         List<ChatWithUserDTO> chatWithUserDTOS = historyService.selChatHistory(goodsId);
+
+        //获取登录账号的信息
+        User sessionUser = (User) request.getSession().getAttribute("user");
+        MyCollection myCollection = historyService.selCollectionHistory(sessionUser.getId(), goodsId);
+
         model.addAttribute("goodsWithUser",goodsWithUser);
         model.addAttribute("contact",contact);
         model.addAttribute("chatWithUserDTOS",chatWithUserDTOS);
+        if(myCollection!=null){
+            model.addAttribute("isHeart",true);
+        }else {
+            model.addAttribute("isHeart",false);
+        }
         return "detailGoods";
     }
 
@@ -142,21 +154,27 @@ public class GoodsController {
 
     @ResponseBody
     @RequestMapping(value = "insCollection",method = RequestMethod.POST)
-    public boolean insCollection(@RequestParam("userId")Integer userId,
-                                @RequestParam("goodsId")Integer goodsId){
-        if (userId == null || goodsId ==null)
+    public boolean insCollection(@RequestParam("goodsId")Integer goodsId,
+                                 HttpServletRequest request){
+        //获取登录账号的信息
+        User sessionUser = (User) request.getSession().getAttribute("user");
+
+        if (sessionUser == null || goodsId ==null)
             return false;
-        historyService.insCollectionHistory(userId,goodsId);
+        historyService.insCollectionHistory(sessionUser.getId(),goodsId);
         return true;
     }
 
     @ResponseBody
     @RequestMapping(value = "delCollection",method = RequestMethod.POST)
-    public boolean delCollection(@RequestParam("userId")Integer userId,
-                                @RequestParam("goodsId")Integer goodsId){
-        if (userId == null || goodsId ==null)
+    public boolean delCollection(@RequestParam("goodsId")Integer goodsId,
+                                 HttpServletRequest request){
+        //获取登录账号的信息
+        User sessionUser = (User) request.getSession().getAttribute("user");
+
+        if (sessionUser == null || goodsId ==null)
             return false;
-        historyService.delCollectionHistory(userId,goodsId);
+        historyService.delCollectionHistory(sessionUser.getId(),goodsId);
         return true;
     }
 
