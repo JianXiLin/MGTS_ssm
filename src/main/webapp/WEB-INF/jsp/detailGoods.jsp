@@ -103,18 +103,23 @@
                     <!-- Date/Time -->
                     <p class="time">Released on <fmt:formatDate value="${dateValue}"
                                                                 pattern="yyyy年 MM月 dd日  HH:mm:ss"/></p>
-                    <c:if test="${goodsWithUser.user.accountId == sessionScope.user.accountId}">
-                        <a href="/goods/update/${goodsWithUser.goods.id}">
-                            <button type="button" class="btn tradeBtn" href="">修改</button>
-                        </a>
-                    </c:if>
-                    <c:if test="${goodsWithUser.user.accountId != sessionScope.user.accountId}">
-                        <button id="cruelty" type="button" class="btn tradeBtn heartBtn"  ${isHeart?'style=\"display: none;\"':''}>
-                            <img src="<%=request.getContextPath()%>/resource/img/cruelty.png">
-                        </button>
-                        <button id="heart" type="button" class="btn tradeBtn heartBtn" ${isHeart?'':'style=\"display: none;\"' }>
-                            <img src="<%=request.getContextPath()%>/resource/img/heart.png">
-                        </button>
+                    <c:if test="${sessionScope.user != null}">
+                        <c:if test="${goodsWithUser.user.accountId == sessionScope.user.accountId}">
+                            <a href="/goods/update/${goodsWithUser.goods.id}">
+                                <button type="button" class="btn tradeBtn" href="">修改</button>
+                            </a>
+                        </c:if>
+                        <c:if test="${goodsWithUser.user.accountId != sessionScope.user.accountId}">
+                            <button id="cruelty" type="button"
+                                    class="btn tradeBtn heartBtn"  ${isHeart?'style=\"display: none;\"':''}>
+                                <img src="<%=request.getContextPath()%>/resource/img/cruelty.png">
+                            </button>
+                            <button id="heart" type="button"
+                                    class="btn tradeBtn heartBtn" ${isHeart?'':'style=\"display: none;\"' }>
+                                <img src="<%=request.getContextPath()%>/resource/img/heart.png">
+                            </button>
+                        </c:if>
+
                     </c:if>
 
                 </div>

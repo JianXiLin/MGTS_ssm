@@ -45,7 +45,10 @@ public class GoodsController {
 
         //获取登录账号的信息
         User sessionUser = (User) request.getSession().getAttribute("user");
-        MyCollection myCollection = historyService.selCollectionHistory(sessionUser.getId(), goodsId);
+        MyCollection myCollection = null;
+        if(sessionUser!=null){
+           myCollection = historyService.selCollectionHistory(sessionUser.getId(), goodsId);
+        }
 
         model.addAttribute("goodsWithUser",goodsWithUser);
         model.addAttribute("contact",contact);
