@@ -4,14 +4,13 @@ public class Contact {
     private Integer id;
     private Integer userId;
     private String wechat;
-    private Integer phoneNumber;
-    private Integer qq;
+    private String phoneNumber;
+    private String qq;
 
     public Contact() {
     }
 
-    public Contact(Integer id, Integer userId, String wechat, Integer phoneNumber, Integer qq) {
-        this.id = id;
+    public Contact(Integer userId, String wechat, String phoneNumber, String qq) {
         this.userId = userId;
         this.wechat = wechat;
         this.phoneNumber = phoneNumber;
@@ -42,19 +41,19 @@ public class Contact {
         this.wechat = wechat;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Integer getQq() {
+    public String getQq() {
         return qq;
     }
 
-    public void setQq(Integer qq) {
+    public void setQq(String qq) {
         this.qq = qq;
     }
 }

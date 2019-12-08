@@ -107,7 +107,7 @@
                             <div class="panel-title">
                                 <a href="#collapseOne" data-toggle="collapse" data-parent="#accoradion">交易列表</a>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
+                            <div id="collapseOne" class="panel-collapse collapse  show">
                                 <div class="panel-body">
                                     <ul class="list-group">
                                         <li class="list-group-item list-group-item-success">
@@ -144,7 +144,7 @@
                             </div>
 
 
-                            <div id="collapseTwo" class="panel-collapse collapse">
+                            <div id="collapseTwo" class="panel-collapse collapse  show">
                                 <div class="panel-body">
                                     <ul class="list-group">
 
@@ -156,13 +156,12 @@
                                         </li>
 
                                         <c:forEach items="${collection}" var="mycollection">
-                                            <li class="list-group-item list-group-item-success">
-                                                <div class="row">
-                                                    <div class="col-sm-4"><c:out value="${mycollection.value}" /></div>
-                                                    <div class="col-sm-4"><c:out value="${mycollection.key}" /></div>
-                                                </div>
-                                            </li>
-
+                                                <li class="list-group-item list-group-item-success">
+                                                    <div class="row">
+                                                        <div class="col-sm-4"><c:out value="${mycollection.value}" /></div>
+                                                        <div class="col-sm-4"><c:out value="${mycollection.key}" /></div>
+                                                    </div>
+                                                </li>
                                         </c:forEach>
 
 

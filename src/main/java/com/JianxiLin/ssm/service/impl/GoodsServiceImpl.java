@@ -129,12 +129,22 @@ public class GoodsServiceImpl implements GoodsService {
         return insGoods.getType();
     }
 
+    /***
+     * 更加物品id查询物品信息
+     * @param id
+     * @return
+     */
     @Override
     public List<Goods> getGoodWithUserById(int id) {
         List<Goods> list=goodsDao.selGoodById(id);
         return list;
     }
 
+    @Override
+    public List<Goods> getGoodsByUserId(String userAccountId) {
+        List<Goods> list=goodsDao.selGoodByUserId(userAccountId);
+        return list;
+    }
 
     private void insOrUpdateGoods(Goods goods) {
         Goods DBGoods = goodsDao.selGoodsById(goods.getId());

@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public interface GoodsDao {
     /***
-     * 根据用户id查询物品信息
+     * 根据物品id查询某一个物品信息
      * @param id
      * @return
      */
@@ -50,4 +50,12 @@ public interface GoodsDao {
      * @return
      */
     List<Goods> selGoodById(@Param("id") Integer id);
+
+    /**
+     * 根据用户的accountId查询信息详情
+     * @param userAccountId
+     * @return
+     */
+    List<Goods> selGoodByUserId(@Param("userAccountId") String userAccountId);
+
 }

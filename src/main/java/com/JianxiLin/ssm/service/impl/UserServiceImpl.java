@@ -1,10 +1,14 @@
 package com.JianxiLin.ssm.service.impl;
 
+import com.JianxiLin.ssm.dao.CollectionDao;
 import com.JianxiLin.ssm.dao.UserOtherInfoDao;
+import com.JianxiLin.ssm.entity.Collectionperson;
 import com.JianxiLin.ssm.entity.Contact;
 import com.JianxiLin.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -12,6 +16,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserOtherInfoDao userOtherInfoDao;
+    @Autowired
+    private CollectionDao collectionDao;
 
     /**
      * 获取用户的联系方式
@@ -40,5 +46,13 @@ public class UserServiceImpl implements UserService {
             return false;
         }
         return true;
+    }
+
+
+    @Override
+    public List<Collectionperson> getCollectionByUserId(int user_id) {
+
+        List<Collectionperson> collectionperson=collectionDao.selCollectionByUserId(user_id);
+        return collectionperson;
     }
 }

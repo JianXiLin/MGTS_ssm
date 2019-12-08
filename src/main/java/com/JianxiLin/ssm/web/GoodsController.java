@@ -29,6 +29,19 @@ public class GoodsController {
     @Autowired
     private HistoryServiceImpl historyService;
 
+
+    @RequestMapping(value = "/personal",method = RequestMethod.GET)
+    public String goPersonalGoodsPage(HttpServletRequest request,
+                                      Model model){
+        User user = null;
+        List<Goods> goodsList = null;
+        if(null != (user = (User) request.getSession().getAttribute("user"))){
+            goodsList = goodsService.getGoodsByUserId(user.getAccountId());
+        }
+        model.addAttribute("goodsList",goodsList);
+        return "personalGoods";
+    }
+
     /** ======= 物品详情 =======
      * 处理获取物品详情页面的请求
      * @param goodsId 物品id

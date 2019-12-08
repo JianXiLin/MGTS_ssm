@@ -4,8 +4,8 @@ import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.entity.Collectionperson;
 import com.JianxiLin.ssm.entity.Goods;
 import com.JianxiLin.ssm.entity.User_info;
-import com.JianxiLin.ssm.service.impl.CollectionServiceImpl;
 import com.JianxiLin.ssm.service.impl.GoodsServiceImpl;
+import com.JianxiLin.ssm.service.impl.UserServiceImpl;
 import com.JianxiLin.ssm.service.impl.User_InfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ public class IndexController {
     @Autowired
     private User_InfoServiceImpl user_infoService;
     @Autowired
-    private CollectionServiceImpl collectionService;
+    private UserServiceImpl userService;
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(Model model) {
@@ -66,7 +66,7 @@ public class IndexController {
         }
 
 
-        List<Collectionperson> collectionperson=collectionService.getCollectionByUserId(userId);
+        List<Collectionperson> collectionperson=userService.getCollectionByUserId(userId);
         Map<String,String> map=new HashMap<String, String>();
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
         for(Collectionperson collectionperson2 :collectionperson ){

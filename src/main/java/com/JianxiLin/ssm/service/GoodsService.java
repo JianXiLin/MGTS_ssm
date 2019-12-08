@@ -57,4 +57,12 @@ public interface GoodsService {
      */
     List<Goods>  getGoodWithUserById(int id);
 
+    /**
+     * 根据用户id查询物品信息
+     *
+     * @param
+     * @return
+     */
+    List<Goods> getGoodsByUserId(String userAccountId);
+
 }

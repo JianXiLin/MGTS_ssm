@@ -126,7 +126,7 @@
                             </button>
                             <img id="goodsImg" style="width:50px" src="${goods.goodsPicture}"/>
                         </div>
-                        <input type="hidden" id="addFormPic" name="goodsPicture" class="form-control" value="">
+                        <input type="hidden" id="addFormPic" name="goodsPicture" class="form-control" value="${goods.goodsPicture}">
                         <div class="progress" style="
 						                background-color: #fff;
 						                margin: 10px 0 0 3%;
