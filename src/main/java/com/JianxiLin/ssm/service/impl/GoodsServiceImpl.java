@@ -129,6 +129,12 @@ public class GoodsServiceImpl implements GoodsService {
         return insGoods.getType();
     }
 
+    @Override
+    public List<Goods> getGoodWithUserById(int id) {
+        List<Goods> list=goodsDao.selGoodById(id);
+        return list;
+    }
+
 
     private void insOrUpdateGoods(Goods goods) {
         Goods DBGoods = goodsDao.selGoodsById(goods.getId());

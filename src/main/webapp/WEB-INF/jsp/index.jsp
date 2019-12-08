@@ -15,7 +15,6 @@
 <body>
 
     <%@include file="common/header.jsp"%>
-
     <!-- ##### 导航图片  Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(<%= request.getContextPath()%>/resource/img/bg-img/breadcumb.jpg); ">
         <div class="container h-100">
@@ -138,9 +137,13 @@
         </div>
     </section>
     <!--#### 内容 End #### -->
-  
+
+
+
+
     <%@include file="common/footer.jsp"%>
     <%@include file="common/script.jsp"%>
+
 
 </body>
 

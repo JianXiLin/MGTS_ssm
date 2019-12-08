@@ -44,4 +44,10 @@ public interface GoodsDao {
      */
     void updateGoods(@Param("goods") Goods goods);
 
+    /**
+     * 根据ID查询信息详情
+     * @param id
+     * @return
+     */
+    List<Goods> selGoodById(@Param("id") Integer id);
 }

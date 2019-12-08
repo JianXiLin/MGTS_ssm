@@ -77,7 +77,7 @@
                         <img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">${user.name}&nbsp;</a>
                     <div class="dropdown-menu userNavHidden" aria-labelledby="navbarDropdown">
                         <a id="logoutBtn" class="dropdown-item">退出登录</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="/personInformation/${user.id}">Another action</a>
                     </div>
                 </c:if>
 

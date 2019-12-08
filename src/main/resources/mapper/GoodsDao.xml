@@ -54,4 +54,10 @@
         id = #{goods.id}
     </update>
 
+    <!--根据物品id查询详情-->
+    <select id="selGoodById" resultType="com.JianxiLin.ssm.entity.Goods">
+        select * from goods
+        where id = #{id}
+    </select>
+
 </mapper>

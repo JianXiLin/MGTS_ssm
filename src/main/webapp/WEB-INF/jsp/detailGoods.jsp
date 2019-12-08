@@ -130,6 +130,7 @@
             <hr>
             <!-- 物品描述信息 start-->
             <div class="col-lg-12 describe">
+
                 <h2><b>物品描述</b></h2>
                 <p>${goodsWithUser.goods.goodsDescribe}</p>
             </div>

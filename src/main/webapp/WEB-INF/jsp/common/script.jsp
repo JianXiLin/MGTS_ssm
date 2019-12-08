@@ -26,3 +26,24 @@
 <script src="<%=request.getContextPath()%>/resource/js/jquery/jquery.qrcode.min.js" type="text/javascript"></script>
 <!-- header.js -->
 <script src="<%=request.getContextPath()%>/resource/js/myJS/header.js" type="text/javascript"></script>
+
+<script src="<%=request.getContextPath()%>/resource/js/myJS/personInformation.js" type="text/javascript"></script>
+
+<script src="<%=request.getContextPath()%>/resource/js/myJS/Test.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy-1.0.3.js"></script>
+<script type="text/javascript">
+    var goEasy = new GoEasy({
+        host:'hangzhou.goeasy.io',
+        appkey: "BC-81939b1ca77f4bf48a50c59510df71cd",
+        forceTLS:false,
+        onConnected: function() {
+            console.log('连接成功！')
+        },
+        onDisconnected: function() {
+            console.log('连接断开！')
+        },
+        onConnectFailed: function(error) {
+            console.log('连接失败或错误！')
+        }
+    });
+</script>

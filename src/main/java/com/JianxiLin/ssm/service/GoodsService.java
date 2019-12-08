@@ -3,6 +3,7 @@ package com.JianxiLin.ssm.service;
 import com.JianxiLin.ssm.dto.GoodsPageDTO;
 import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.dto.PendingGoodsDTO;
+import com.JianxiLin.ssm.entity.Goods;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,4 +48,13 @@ public interface GoodsService {
      * @return
      */
     Integer pendingOrUpdGoods(PendingGoodsDTO pendingGoodsDTO);
+
+    /**
+     * 根据id查询物品信息
+     *
+     * @param
+     * @return
+     */
+    List<Goods>  getGoodWithUserById(int id);
+
 }
