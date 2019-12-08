@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JianxiLin.ssm.dao.User_InfoDao">
+    <!--根据用户userId查询用户信息-->
+    <select id="selUserInfoByUserId" resultType="com.JianxiLin.ssm.entity.User_info">
+        select * from user_other_info
+        where user_id = #{user_id}
+    </select>
+
+    <!--插入新的用户其他信息-->
+    <select id="insUser_Info" >
+		insert into user_other_info
+		(id,user_id)
+		values
+		(default,#{user_info.userId})
+	</select>
+
+    <!--更新用户其他信息-->
+    <update id="updateUser_Info">
+		UPDATE user_other_info
+		SET
+		wechat = #{user_info.wechat},phone_number = #{user_info.phoneNumber},qq= #{user_info.qq}
+		where
+		user_id = #{user_info.userId}
+	</update>
+
+
+
+
+</mapper>    
