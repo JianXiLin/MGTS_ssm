@@ -4,7 +4,7 @@ public class PendingGoodsDTO {
     private String userAccountId;
     private Integer goodsId;
     private String goodsName;
-    private Integer price;
+    private String price;
     private String goodsDescribe;
     private String transConditions;
     private String goodsTypeName;
@@ -48,11 +48,11 @@ public class PendingGoodsDTO {
         this.goodsName = goodsName;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

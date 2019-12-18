@@ -160,17 +160,17 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                             </div>
-                            <div class="modal-body">
-                                <form id="selectPicForm">
-                                    <input type="file" id="filePicture" name="smfile" multiple="multiple"><!--  -->
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="button" id="s" class="btn btn-primary" data-dismiss="modal"
-                                        οnclick="selectPic()">上传
-                                </button>
-                            </div>
+                            <form id="selectPicForm" method="post"  enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <input type="file" id="filePicture" name="imageFile" multiple="multiple"><!--  -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="button" id="s" class="btn btn-primary" data-dismiss="modal"
+                                            οnclick="selectPic()">上传
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

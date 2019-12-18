@@ -27,7 +27,6 @@ public class GoodsTest {
 
     }
 
-
     @Test
     public void testSelGoodsByType(){
         System.out.println("data---------------------------------------------");

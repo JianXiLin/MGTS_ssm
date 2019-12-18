@@ -4,7 +4,7 @@ public class Goods {
     private int id;
     private String goodsName;
     private String goodsDescribe;
-    private int price;
+    private String price;
     private String transConditions;
     private long gmtCreate;
     private long gmtUpdate;
@@ -19,7 +19,7 @@ public class Goods {
     public Goods() {
     }
 
-    public Goods(String goodsName, String goodsDescribe, int price, String transConditions, long gmtCreate, long gmtUpdate, String goodsPicture, String goodsVideo, String tradingStatus, Integer type, String userId) {
+    public Goods(String goodsName, String goodsDescribe, String price, String transConditions, long gmtCreate, long gmtUpdate, String goodsPicture, String goodsVideo, String tradingStatus, Integer type, String userId) {
         this.goodsName = goodsName;
         this.goodsDescribe = goodsDescribe;
         this.price = price;
@@ -84,11 +84,11 @@ public class Goods {
         this.goodsDescribe = goodsDescribe;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

@@ -50,7 +50,7 @@ $(function () {
 });
 /*###### 挂起物品 ####### */
 $(function () {
-    initFileInput("filePicture", "https://sm.ms/api/upload");
+    initFileInput("filePicture");
 })
 
 /**
@@ -59,7 +59,7 @@ $(function () {
  * @param uploadUrl 路径
  * @returns
  */
-function initFileInput(ctrlName, uploadUrl) {
+function initFileInput(ctrlName) {
     var control = $('#' + ctrlName);
     control.fileinput({
         language: 'zh', //设置语言
@@ -73,29 +73,21 @@ function initFileInput(ctrlName, uploadUrl) {
 }
 
 function selectPic() {
-    var file = $('#filePicture')[0];
-    for (var i = 0; i < file.files.length; i++) {
-        var formData = new FormData();
-        formData.append('smfile', file.files[i]);
-        ajaxUploadToSM(formData)
-    }
-
+    ajaxUploadToSM()
     // alert("上传成功")
 }
 
 
-function ajaxUploadToSM(formData) {
+function ajaxUploadToSM() {
     $('#file_progress').attr('style', 'width:0%');
     $('#file_progress').html('')
     $.ajax({
         type: "post",
-        dataType: "json",
-        url: "https://sm.ms/api/upload",
+        url: "/file/upload",
         async: true, //异步  true 同步 false
-        cache: false, //缓存 false的话会在url后面加一个时间缀，让它跑到服务器获取结果。
         contentType: false, //上传的时候必须要
         processData: false,
-        data: formData,
+        data: new FormData($('#selectPicForm')[0]),
         beforeSend: function () {
             console.log("before")
             $('#file_progress').attr('style', 'width:20%');
@@ -111,15 +103,8 @@ function ajaxUploadToSM(formData) {
             $('#file_progress').attr('style', 'width:80%');
             $('#file_progress').html('80%')
             $('#fileBtn').html('修改图片')
-            console.log(data);
-            var url = '';
-            if (data.success) {
-                url = data.data.url;
-            } else {
-                var rep = /https?:\/\/(?:[-\w.]|(?:%[\da-fA-F]{2})|\/)+/;
-                var str = data.message
-                url = rep.exec(str)
-            }
+            var url = data;
+
             $('#addFormPic').val(url);
             $('#goodsImg').attr('src', url);
             console.log(url)
