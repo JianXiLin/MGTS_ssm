@@ -69,5 +69,8 @@
         order by g.gmt_update desc
     </select>
 
-
+    <update id="updImgByGoodsId">
+        update goods set goods_picture = #{goodsPicture}
+        where id = #{goodsId}
+    </update>
 </mapper>

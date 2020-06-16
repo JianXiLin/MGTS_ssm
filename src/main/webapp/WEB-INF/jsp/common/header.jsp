@@ -13,7 +13,7 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="/"><img src="<%=request.getContextPath()%>/resource/img/core-img/logo.png"
+            <a class="nav-brand" href="${pageContext.request.contextPath}/"><img src="<%=request.getContextPath()%>/resource/img/core-img/logo.png"
                                                alt=""></a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
@@ -30,14 +30,14 @@
                     <ul>
                         <li><a href="#">物品</a>
                             <ul class="dropdown">
-                                <li><a href="/goods/page/1">图书教材</a></li>
-                                <li><a href="/goods/page/2">生活用品</a></li>
-                                <li><a href="/goods/page/3">交通工具</a></li>
-                                <li><a href="/goods/page/4">票卷小物</a></li>
-                                <li><a href="/goods/page/5">休闲食品</a></li>
-                                <li><a href="/goods/page/6">实用工具</a></li>
-                                <li><a href="/goods/page/7">闲置数码</a></li>
-                                <li><a href="/goods/page/8">其它物品</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/1">图书教材</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/2">生活用品</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/3">交通工具</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/4">票卷小物</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/5">休闲食品</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/6">实用工具</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/7">闲置数码</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/page/8">其它物品</a></li>
                             </ul>
                         </li>
 
@@ -61,7 +61,7 @@
             </div>
             <c:if test="${sessionScope.user != null}">
                 <div class="favourite-area">
-                    <a href="/goods/pending">挂起物品</a>
+                    <a href="${pageContext.request.contextPath}/goods/pending">挂起物品</a>
                 </div>
             </c:if>
             <!-- User Login Info -->
@@ -77,8 +77,8 @@
                         <img src=${user.avaterUrl} alt='user_img' style="max-width: 28px;margin-right: 5px;border-radius:5px;">${user.name}&nbsp;</a>
                     <div class="dropdown-menu userNavHidden" aria-labelledby="navbarDropdown">
                         <a id="logoutBtn" class="dropdown-item">退出登录</a>
-                        <a class="dropdown-item" href="/personInformation/${user.id}">个人信息</a>
-                        <a class="dropdown-item" href="/goods/personal">个人物品</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/personInformation/${user.id}">个人信息</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/personal">个人物品</a>
 
                     </div>
                 </c:if>

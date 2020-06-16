@@ -7,6 +7,14 @@ public class GoodsWithUserDTO {
     private User user;
     private Goods goods;
 
+    public GoodsWithUserDTO() {
+    }
+
+    public GoodsWithUserDTO(User user, Goods goods) {
+        this.user = user;
+        this.goods = goods;
+    }
+
     public User getUser() {
         return user;
     }

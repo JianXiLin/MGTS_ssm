@@ -1,6 +1,7 @@
 package com.JianxiLin.ssm.service.impl;
 
 import com.JianxiLin.ssm.dao.*;
+import com.JianxiLin.ssm.dao.cache.RedisDao;
 import com.JianxiLin.ssm.dto.GoodsPageDTO;
 import com.JianxiLin.ssm.dto.GoodsWithUserDTO;
 import com.JianxiLin.ssm.dto.PendingGoodsDTO;
@@ -26,22 +27,24 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private UserOtherInfoDao userOtherInfoDao;
 
+    @Autowired
+    RedisDao redisDao;
     /**
      * 根据用户id 获取物品信息，附带其用户信息
-     *
+     *  检查缓存，缓存中存在数据则从缓存获取
      * @param id
      * @return
      */
     @Override
     public GoodsWithUserDTO getGoodsWithUserById(int id) {
-        Goods goods = goodsDao.selGoodsById(id);
-        User user = userDao.selUserByAccountId(goods.getUserId());
-        GoodsWithUserDTO goodsWithUserDTO = new GoodsWithUserDTO();
-        goodsWithUserDTO.setGoods(goods);
-        goodsWithUserDTO.setUser(user);
-
+        GoodsWithUserDTO goodsWithUserDTO = null;
+        if(null == (goodsWithUserDTO=redisDao.getGoods(id))){
+            Goods goods = goodsDao.selGoodsById(id);
+            User user = userDao.selUserByAccountId(goods.getUserId());
+            goodsWithUserDTO.setGoods(goods);
+            goodsWithUserDTO.setUser(user);
+        }
         return goodsWithUserDTO;
-
     }
 
     /**
@@ -53,7 +56,6 @@ public class GoodsServiceImpl implements GoodsService {
     public List<GoodsWithUserDTO> getAllGoodsWithUser() {
         List<GoodsWithUserDTO> goodsWithUserDTOs;
         List<Goods> goodsList = goodsDao.selAllGoods();
-
         goodsWithUserDTOs = toGoodsListWithUser(goodsList);
 
         return goodsWithUserDTOs;
@@ -61,17 +63,27 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 获取热门物品信息
-     *
+     *  添加redis缓存
      * @return
      */
     @Override
     public List<GoodsWithUserDTO> getHotGoods() {
         List<Integer> hotGoodsIds = gLabelsDao.selHotLabelsGoodsId();
-        List<Goods> hotGoods = new ArrayList<>();
+        List<GoodsWithUserDTO> goodsWithUserDTOList = new ArrayList<>();
+
         for (Integer hotGoodsId : hotGoodsIds) {
-            hotGoods.add(goodsDao.selGoodsById(hotGoodsId));
+            GoodsWithUserDTO goodsInCache = null;
+
+            if (null != (goodsInCache = redisDao.getGoods(hotGoodsId))){
+                // 缓存中存在该物品信息
+                goodsWithUserDTOList.add(goodsInCache);
+            }else {
+                // 缓存中不存在该物品信息，则添加到缓存中
+                goodsInCache = toGoodsWithUser(goodsDao.selGoodsById(hotGoodsId));
+                redisDao.putGoods(goodsInCache);
+                goodsWithUserDTOList.add(goodsInCache);
+            }
         }
-        List<GoodsWithUserDTO> goodsWithUserDTOList = toGoodsListWithUser(hotGoods);
         return goodsWithUserDTOList;
     }
 
@@ -205,6 +217,15 @@ public class GoodsServiceImpl implements GoodsService {
             goodsWithUserList.add(gWithU);
         }
         return goodsWithUserList;
+    }
+
+    private GoodsWithUserDTO toGoodsWithUser(Goods goods) {
+
+        GoodsWithUserDTO gWithU = new GoodsWithUserDTO();
+        gWithU.setGoods(goods);
+        gWithU.setUser(userDao.selUserByAccountId(goods.getUserId()));
+
+        return gWithU;
     }
 
 }

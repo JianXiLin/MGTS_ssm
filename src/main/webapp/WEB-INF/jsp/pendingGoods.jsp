@@ -51,7 +51,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="page-title text-center">
-                    <h2>dresses</h2>
+                    <h2>Goods</h2>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <!-- 挂起物品填写 -->
             <div class="col-lg-8 offset-lg-2">
 
-                <form class="col-lg-12 form-horizontal" id="form" method="post" action="/goods/pending">
+                <form class="col-lg-12 form-horizontal" id="form" method="post" action="${pageContext.request.contextPath}/goods/pending">
                     <c:if test="${error!=null}">
                         <span class="alert alert-danger" role="alert" style="display: inline-block">${error}</span>
                     </c:if>

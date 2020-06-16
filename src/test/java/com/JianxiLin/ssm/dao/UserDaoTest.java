@@ -1,14 +1,11 @@
 package com.JianxiLin.ssm.dao;
 
-import com.JianxiLin.ssm.entity.Goods;
 import com.JianxiLin.ssm.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 /**
  * 
@@ -54,25 +51,20 @@ public class UserDaoTest {
 		System.out.println(user.toString()+"---------");
 	}
 
-	@Test
-	public void testInsTest(){
-		userDao.insTest("test0200","5");
-		System.out.println("test0200".indexOf("test02"));
-	}
 
 	@Test
 	public void testSelGoodsById(){
-		Goods goods = goodsDao.selGoodsById(1);
-		System.out.println(goods.toString());
+//		Goods goods = goodsDao.selGoodsById(1);
+//		System.out.println(goods.toString());
 	}
 
 	@Test
 	public void testSelAllGoods(){
-		List<Goods> goodes = goodsDao.selAllGoods();
-		for (Goods goods:goodes) {
-
-			System.out.println(goods.toString());
-		}
+//		List<Goods> goodes = goodsDao.selAllGoods();
+//		for (Goods goods:goodes) {
+//
+//			System.out.println(goods.toString());
+//		}
 	}
 
 	@Test
@@ -80,9 +72,9 @@ public class UserDaoTest {
 //		String type = gTypeDao.selTypeNameById(1);
 //		System.out.println("type:"+type);
 
-		Goods goods = goodsDao.selGoodsById(1);
-
-		System.out.println(goods.toString());
+//		Goods goods = goodsDao.selGoodsById(1);
+//
+//		System.out.println(goods.toString());
 	}
 
 

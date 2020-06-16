@@ -79,6 +79,7 @@ function selectPic() {
 
 
 function ajaxUploadToSM() {
+
     $('#file_progress').attr('style', 'width:0%');
     $('#file_progress').html('')
     $.ajax({

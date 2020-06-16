@@ -27,7 +27,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="page-title text-center">
-                    <h2>dresses</h2>
+                    <h2>Goods</h2>
                 </div>
             </div>
         </div>
@@ -51,12 +51,12 @@
                             <c:forEach items="${goodsWithUserDTOList}" var="goodsWithUserDTO">
                                 <div class="col-lg-3 col-md-6 mb-3">
                                     <div class="card h-100">
-                                        <a href="/goods/${goodsWithUserDTO.goods.id}"><img class="card-img-top"
+                                        <a href="${pageContext.request.contextPath}/goods/${goodsWithUserDTO.goods.id}"><img class="card-img-top"
                                                                     src="<c:url value="${goodsWithUserDTO.goods.goodsPicture}"/>"
                                                                     alt=""></a>
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="/goods/${goodsWithUserDTO.goods.id}"><c:out value="${goodsWithUserDTO.goods.goodsName}"/></a>
+                                                <a href="${pageContext.request.contextPath}/goods/${goodsWithUserDTO.goods.id}"><c:out value="${goodsWithUserDTO.goods.goodsName}"/></a>
                                             </h4>
                                             <h5>$<c:out value="${goodsWithUserDTO.goods.price}"/></h5>
                                             <span style="padding-top:20px;">

@@ -7,7 +7,7 @@
 
 <head>
     <!-- Title  -->
-    <title>Essence - Fashion Ecommerce Template</title>
+    <title>MGTS</title>
 
     <%@include file="common/head_css.jsp"%>
 </head>
@@ -21,7 +21,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>dresses</h2>
+                        <h2>Goods</h2>
                     </div>
                 </div>
             </div>
@@ -48,14 +48,14 @@
                                     <!-- Single Item -->
                                     <li data-toggle="collapse" data-target="#clothing">
 
-                                    <li><a href="/goods/page/1">图书教材</a></li>
-                                    <li><a href="/goods/page/2">生活用品</a></li>
-                                    <li><a href="/goods/page/3">交通工具</a></li>
-                                    <li><a href="/goods/page/4">票卷小物</a></li>
-                                    <li><a href="/goods/page/5">休闲食品</a></li>
-                                    <li><a href="/goods/page/6">实用工具</a></li>
-                                    <li><a href="/goods/page/7">闲置数码</a></li>
-                                    <li><a href="/goods/page/8">其它物品</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/1">图书教材</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/2">生活用品</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/3">交通工具</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/4">票卷小物</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/5">休闲食品</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/6">实用工具</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/7">闲置数码</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/goods/page/8">其它物品</a></li>
 
                                     </li>
 
@@ -82,13 +82,13 @@
                                 </ol>
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img class="d-block img-fluid" src="https://i.loli.net/2019/11/26/xKkCbFqh8tnJOGy.png" style="width: 100%;" alt="First slide">
+                                        <img class="d-block img-fluid" src="<%=request.getContextPath()%>/resource/img/img_fluid.jpg" style="width: 100%;" alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block img-fluid" src="https://i.loli.net/2019/11/26/xKkCbFqh8tnJOGy.png" style="width: 100%;" alt="Second slide">
+                                        <img class="d-block img-fluid" src="<%=request.getContextPath()%>/resource/img/img_fluid.jpg" style="width: 100%;" alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block img-fluid" src="https://i.loli.net/2019/11/26/xKkCbFqh8tnJOGy.png" style="width: 100%;" alt="Third slide">
+                                        <img class="d-block img-fluid" src="<%=request.getContextPath()%>/resource/img/img_fluid.jpg" style="width: 100%;" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -105,7 +105,7 @@
                                 <c:forEach items="${hotGoodsWithUser}" var="hotGoodsWithUser">
                                     <div class="col-lg-4 col-md-6 mb-4">
                                         <div class="card h-100">
-                                            <a href="/goods/${hotGoodsWithUser.goods.id}"><img class="card-img-top"
+                                            <a href="${pageContext.request.contextPath}/goods/${hotGoodsWithUser.goods.id}"><img class="card-img-top"
                                                                         src="<c:url value="${hotGoodsWithUser.goods.goodsPicture}"/>"
                                                                         alt=""></a>
                                             <div class="card-body">

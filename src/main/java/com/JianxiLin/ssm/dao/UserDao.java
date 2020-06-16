@@ -41,12 +41,4 @@ public interface UserDao {
      */
     User selUserByToken(@Param("token")String token);
 
-
-    /**
-     * 插入测试表格数据
-     *
-     * @param name
-     * @param col
-     */
-    void insTest(@Param("name")String name,@Param("col")String col);
 }

@@ -23,7 +23,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="page-title text-center">
-                    <h2>dresses</h2>
+                    <h2>Goods</h2>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="row">
             <!-- 我的物品填写 -->
             <c:forEach items="${goodsList}" var="goods">
-                <div class="row">
+
                     <div class="col-2">
                         <div class="card" style="width: 10rem; height:14rem;">
                             <img class="card-img-top" src="${goods.goodsPicture}"
@@ -98,11 +98,11 @@
                     <div class="col-2">
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn btn-light btn-lg"><a href="/goods/${goods.id}">查看页面</a></button>
+                                <button type="button" class="btn btn btn-light btn-lg"><a href="${pageContext.request.contextPath}/goods/${goods.id}">查看页面</a></button>
                             </div>
                             <div class="w-100"></div>
                             <div class="col">
-                                <button type="button" class="btn btn btn-light btn-lg"><a href="/goods/update/${goods.id}">&nbsp;&nbsp;&nbsp;修&nbsp;&nbsp;&nbsp;改&nbsp;&nbsp;</a></button>
+                                <button type="button" class="btn btn btn-light btn-lg"><a href="${pageContext.request.contextPath}/goods/update/${goods.id}">&nbsp;&nbsp;&nbsp;修&nbsp;&nbsp;&nbsp;改&nbsp;&nbsp;</a></button>
                             </div>
                             <div class="w-100"></div>
                             <div class="col">
@@ -111,9 +111,49 @@
                         </div>
                     </div>
 
-                </div>
             </c:forEach>
 
+            <!-- 页码按钮组 start-->
+            <c:if test="${goodsList.size()!=0}">
+                <nav aria-label="Page navigation" class=" myPagination">
+                    <ul class="pagination ">
+                        <c:if test="${goodsPageDTO.showFirstButton}">
+                            <li>
+                                <a href="?page=1" aria-label="Previous">
+                                    &lt;&lt;
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:if test="${goodsPageDTO.showPreButton}">
+                            <li>
+                                <a href="<c:url value="?page=${goodsPageDTO.page - 1}"></c:url>" aria-label="Previous">
+                                    &lt;
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:forEach items="${goodsPageDTO.showPagesList}" var="list">
+                            <li class="<c:out value="${(list==goodsPageDTO.page)?'active':_}"></c:out>">
+                                <a href="<c:url value="?page=${list}"></c:url>"><c:out value="${list}"></c:out></a>
+                            </li>
+                        </c:forEach>
+                        <c:if test="${goodsPageDTO.showNextButton}">
+                            <li>
+                                <a href="<c:url value="?page=${goodsPageDTO.page+1}"></c:url>" aria-label="Next">
+                                    &gt;
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:if test="${goodsPageDTO.showLastButton}">
+                            <li>
+                                <a href="<c:url value="?page=${goodsPageDTO.lastPageNum}"></c:url>" aria-label="Next">
+                                    &gt;&gt;
+                                </a>
+                            </li>
+                        </c:if>
+                    </ul>
+                </nav>
+            </c:if>
+            <!-- 页码按钮组 end-->
 
         </div>
     </div>

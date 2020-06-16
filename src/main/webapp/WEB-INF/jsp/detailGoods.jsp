@@ -29,7 +29,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="page-title text-center">
-                    <h2>dresses</h2>
+                    <h2>Goods</h2>
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@
 <section class="shop_grid_area section-padding-80">
     <div class="container">
         <ol class="myBreadcrumb">
-            <li><a href="/">Home <span>></span></a></li>
-            <li><a href="/goods/page/${goodsWithUser.goods.type}">${goodsWithUser.goods.typeName} <span>></span></a>
+            <li><a href="${pageContext.request.contextPath}/">Home <span>></span></a></li>
+            <li><a href="${pageContext.request.contextPath}/goods/page/${goodsWithUser.goods.type}">${goodsWithUser.goods.typeName} <span>></span></a>
             </li>
             <li class="active">${goodsWithUser.goods.goodsName}</li>
         </ol>
@@ -105,7 +105,7 @@
                                                                 pattern="yyyy年 MM月 dd日  HH:mm:ss"/></p>
                     <c:if test="${sessionScope.user != null}">
                         <c:if test="${goodsWithUser.user.accountId == sessionScope.user.accountId}">
-                            <a href="/goods/update/${goodsWithUser.goods.id}">
+                            <a href="${pageContext.request.contextPath}/goods/update/${goodsWithUser.goods.id}">
                                 <button type="button" class="btn tradeBtn" href="">修改</button>
                             </a>
                         </c:if>
@@ -146,7 +146,7 @@
                 <!--评论输入框-->
                 <h5 class="">Leave a Comment:</h5>
                 <div class="card-body">
-                    <form id="commentForm" action="/goods/insComment" method="post">
+                    <form id="commentForm" action="${pageContext.request.contextPath}/goods/insComment" method="post">
                         <input id="goodsId" type="hidden" name="goodsId" value="${goodsWithUser.goods.id}">
                         <input id="userId" type="hidden" name="userId" value="${sessionScope.user.id}">
                         <div class="form-group">

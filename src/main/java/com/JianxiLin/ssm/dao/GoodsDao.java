@@ -58,4 +58,5 @@ public interface GoodsDao {
      */
     List<Goods> selGoodByUserId(@Param("userAccountId") String userAccountId);
 
+    void updImgByGoodsId(@Param("goodsId") Integer goodsId,@Param("goodsPicture") String goodsPicture);
 }

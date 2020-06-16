@@ -152,5 +152,4 @@ public class UserController {
         request.getSession().removeAttribute("user");
         wechatAuthStateDTO = new WechatAuthStateDTO();
     }
-
 }

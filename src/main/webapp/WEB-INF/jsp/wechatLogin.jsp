@@ -130,6 +130,7 @@
 
                 var t = setInterval(queryWeixi, 1000)
                 function queryWeixi() {
+
                     $.ajax({
                         url: '/user/WechatAuthState',
                         method: 'post',

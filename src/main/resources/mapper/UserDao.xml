@@ -34,32 +34,4 @@
 		select * from user
 		where token = #{token}
 	</select>
-
-	<insert id="insTest">
-		insert into test
-		(id,name,col)
-		values
-		(default,
-		<if test="name =='test01'">
-			'test-01',
-		</if>
-		<if test='name.matches("test02")'>
-			'test-02',
-		</if>
-		<if test='name.indexOf("test02") eq 0'>
-			'test-02_0',
-		</if>
-		<choose>
-			<when test="col > 5">
-				'大于5'
-			</when>
-			<when test="col lt 5">
-				'小于5'
-			</when>
-			<otherwise>
-				'未知'
-			</otherwise>
-		</choose>
-		)
-	</insert>
 </mapper>

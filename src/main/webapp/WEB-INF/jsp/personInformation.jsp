@@ -20,14 +20,14 @@
         <!-- ##### 个人信息 ##### -->
         <div class="row">
             <!-- 左侧 -->
-            <div class="col-sm-3">
+            <div class="col-sm-3  offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">个人信息<div id="help" style="display: none">${user.id}</div></div>
+                    <div class="panel-heading" style="font-size: 20px;"> <strong>个人信息</strong><div id="help" style="display: none">${user.id}</div></div>
                     <div class="panel-body">
                         <img src=${user.avaterUrl} alt='user_img' style="max-width: 100px;margin-right: 100px;border-radius:5px; position: absolute;  top:21%; left: 50%; transform: translate(-50%, -50%);" alt="Me" >
                         <p class="text-center text-primary">${user.name}</p>
                         <address>
-                            <strong>籍贯：${user.country}</strong><br>
+                            <span>籍贯：${user.country}</span><br>
                             <span class="glyphicon glyphicon-home" title="Address">地址：${user.province}${user.city}</span><br>
                             <c:if test="${user.sex==1}">
                                 <span class="glyphicon glyphicon-file" title="PostalCoded">性别：男</span><br>
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="phone" class="col-sm-2 control-label">电话</label>
+                                <label for="phone" class="col-sm-3 control-label">电话</label>
                                 <div class="col-sm-10">
                                     <input type="text" id="phone" class="form-control" value="${user_Info.phoneNumber}">
                                 </div>
@@ -100,12 +100,14 @@
                 </div>
             </div>
             <!-- 右侧 -->
-            <div class="col-sm-9">
+            <div class="col-sm-7">
                 <div class="panel-group" id="accoradion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">
-                                <a href="#collapseOne" data-toggle="collapse" data-parent="#accoradion">交易列表</a>
+                                <a href="#collapseOne" data-toggle="collapse" data-parent="#accoradion" style="
+                                    font-size: 18px;
+                                    color: #000; ">交易列表</a>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse  show">
                                 <div class="panel-body">
@@ -140,7 +142,9 @@
 
                         <div class="panel-heading">
                             <div class="panel-title">
-                                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accoradion">收藏记录</a>
+                                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accoradion" style="
+                                    font-size: 18px;
+                                    color: #000; ">收藏记录</a>
                             </div>
 
 
